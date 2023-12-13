@@ -8,7 +8,7 @@
 5. Abra o VS Code na pasta Refatora-aoHeartBreakers(Está pronto)
 6. Abra o cmd na pasta Refatora-aoHeartBreakers e utilize estes comandos para baixar os pacotes de navegação:
     1. npm install @react-navigation/native
-    2. npm install react-navigation/stack
+    2. npm install @react-navigation/stack
     3. npm install @react-navigation/native-stack
     
     
