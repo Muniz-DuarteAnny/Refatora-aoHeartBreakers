@@ -11,7 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -21,6 +20,9 @@ SET time_zone = "+00:00";
 -- Banco de dados: `heart_breakers`
 --
 
+DROP DATABASE IF EXISTS `heart_breakers_refactoring`;
+CREATE DATABASE `heart_breakers_refactoring`;
+USE `heart_breakers_refactoring`;
 -- --------------------------------------------------------
 
 --
@@ -28,8 +30,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `doctor` (
-  `id` int(11) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
+  `doctorId` int(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `cpf` varchar(11) NOT NULL UNIQUE,
   `password` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -37,9 +39,9 @@ CREATE TABLE `doctor` (
 -- Despejando dados para a tabela `doctor`
 --
 
-INSERT INTO `doctor` (`id`, `cpf`, `password`) VALUES
-(1, '11111111111', '12345678'),
-(2, '22222222222', '12345678');
+INSERT INTO `doctor` (`cpf`, `password`) VALUES
+('11111111111', '123'),
+('22222222222', '123');
 
 -- --------------------------------------------------------
 
@@ -48,10 +50,10 @@ INSERT INTO `doctor` (`id`, `cpf`, `password`) VALUES
 --
 
 CREATE TABLE `patient` (
-  `medical_record` int(11) NOT NULL,
+  `medical_record` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `photo` longblob DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `cpf` int(11) DEFAULT NULL,
+  `cpf` int(11) DEFAULT NULL UNIQUE,
   `rg` int(11) DEFAULT NULL,
   `birth_date` date DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -71,39 +73,6 @@ CREATE TABLE `patient` (
   `results` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Índices para tabelas despejadas
---
-
---
--- Índices de tabela `doctor`
---
-ALTER TABLE `doctor`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `cpf` (`cpf`);
-
---
--- Índices de tabela `patient`
---
-ALTER TABLE `patient`
-  ADD PRIMARY KEY (`medical_record`);
-
---
--- AUTO_INCREMENT para tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `doctor`
---
-ALTER TABLE `doctor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `patient`
---
-ALTER TABLE `patient`
-  MODIFY `medical_record` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
