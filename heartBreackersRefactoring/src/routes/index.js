@@ -8,6 +8,7 @@ import LoginScreen from '../pages/Login'
 import Main from '../pages/Main';
 import Search from '../pages/Search';
 import SignUp from '../pages/Signup';
+import ProntuarioFicha from '../pages/Prontuario/fichaProntuario';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,11 @@ export default function Routes(){
         <Stack.Screen
             name="Cadastro"
             component={SignUp}
+            options={{headerShown: false}}
+        />
+        <Stack.Screen
+            name="Prontuario"
+            component={ProntuarioFicha}
             options={{headerShown: false}}
         />
     </Stack.Navigator>

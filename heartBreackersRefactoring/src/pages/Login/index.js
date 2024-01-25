@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 
 import HB from '../../assets/logoHB.png';
-
+import { useNavigation } from '@react-navigation/native';
 import {css} from '../../Style/css';
 
 const LoginScreen = () => {
 
 
-
+  const navigation = useNavigation();//remove
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -51,6 +51,10 @@ const LoginScreen = () => {
 
         <TouchableOpacity style={css.buttonLogin} onPress={handleLogin}>
           <Text style={css.buttonTextLogin}>Entrar</Text>
+        </TouchableOpacity>
+  
+        <TouchableOpacity style={css.buttonLogin} onPress={ () => navigation.navigate('Prontuario')}>
+          <Text style={css.buttonTextLogin}>prontuarioRemover</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
