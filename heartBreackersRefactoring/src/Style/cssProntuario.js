@@ -112,6 +112,7 @@ const css = StyleSheet.create({
       borderRadius: 5,
       paddingLeft: 5,
       fontSize: 12,
+      color: 'black',
     },
     inputIOS: {
       backgroundColor: 'white',
@@ -161,4 +162,4 @@ const css = StyleSheet.create({
     },
   });
 
-  export {css};
+export {css};

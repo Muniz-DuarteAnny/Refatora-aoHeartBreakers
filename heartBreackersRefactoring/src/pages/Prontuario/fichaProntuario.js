@@ -1,18 +1,22 @@
 
 //importando bibliotecas que serão utilizadas no código, talvez seja necessário baixa-las
+//Va até a pasta package.json e verifique se as bibliotecas react-native-masked-text, react-native-picker-select, @react-navigation/native estão instaladas.
+//Caso elas não estiverem instaladas:
 //No terminal do vs redirecione para a pasta que o seu projeto esta alocado e instale as bibliotecas 
-//npm install react-native-picker-select
-//npm install react-native-masked-text
+//npm install react-native-picker-select react-native-masked-text @react-navigation/native.
 import { View, Text, TouchableOpacity, Image, TextInput, ScrollView } from "react-native";
 import {css} from '../../Style/cssProntuario.js';
 import React, { useState } from "react";
 import { TextInputMask } from 'react-native-masked-text';
 import RNPickerSelect from 'react-native-picker-select';
-
+import { useNavigation } from '@react-navigation/native';
 
 const ProntuarioFicha = () => {
+
+  const navigation = useNavigation();//remove
   //pega o que foi inserido no input e filtra na máscara e depois seta no input
   const [nome, setNome] = useState('');
+  const [endereco, setEndereco] = useState('');
   const [dataNascimento, setdataNascimento] = useState('');
   const [altura, setAltura] = useState('');
   const [peso, setPeso] = useState('');
@@ -20,6 +24,15 @@ const ProntuarioFicha = () => {
   const [rg, setRg] = useState('');
   const [sexo, setSexo] = useState(null);
   const [sangue, setSangue] = useState(null);
+  const [queixa, setQueixa] = useState('');
+  const [historico, setHistorico] = useState('');
+  const [alergias, setAlergias] = useState('');
+  const [cid, setCid] = useState('');
+  const [exameF, setExamef] = useState('');
+  const [conduta, setConduta] = useState('');
+  const [hipoteseD, setHipotesed] = useState('');
+  const [diagnostico, setDiagnostico] = useState('');
+  //const [resultadosE, setResultadose] = useState('');
 
   //adiciona opções nos inputs
   const sexoOpções = [
@@ -38,6 +51,28 @@ const ProntuarioFicha = () => {
     {label: 'O+', value: '7'},
     {label: 'O-', value: '8'},
   ]
+
+  const excluirFormulario = () => {
+    setNome('');
+    setEndereco('');
+    //setdataNascimento('');
+    setAltura('');
+    setPeso('');
+    //setCpf('');
+    //setRg('');
+    setSexo('');
+    setSangue('');
+    setQueixa('');
+    setHistorico('');
+    setAlergias('');
+    setCid('');
+    setExamef('');
+    setConduta('');
+    setHipotesed('');
+    setDiagnostico('');
+    //setResultadose('');
+  };
+
   //marcação da página
   return (
     <ScrollView>
@@ -57,16 +92,15 @@ const ProntuarioFicha = () => {
               <Text style={css.nomeInf}>Nome:</Text>
               <TextInput style={css.inserirInf} 
               placeholder="Digite o nome do paciente"
-              type={'custom'}
               value= {nome}
-              onChangeText={(input) => setNome(input.replace(/[^a-zA-Z]/g, ''))}/>
+              onChangeText={(inputNome) => setNome(inputNome.replace(/[^a-zA-Z\s]/g, ''))}/>
             </View>
             <View style={css.containerInf}>
               <Text style={css.nomeInf}>CPF:</Text>
               <TextInputMask style={css.inserirInf} 
               type={'cpf'}
               value={cpf}
-              onChangeText={(formatted, extracted) => setCpf(extracted)}
+              onChangeText={(formattedInputCpf, inputCpf) => setCpf(inputCpf)}
               placeholder="Digite o CPF do paciente"/>
             </View>
             <View style={css.containerInf}>
@@ -78,13 +112,15 @@ const ProntuarioFicha = () => {
                   mask: 'AA-99.999.999',
                 }}
                 value={rg}
-                onChangeText={(extracted) => {setRg(extracted);}}
+                onChangeText={(formattedInputRg, inputRg) => {setRg(inputRg);}}
               />
             </View>
             <View style={css.containerInf}>
               <Text style={css.nomeInf}>Endereço:</Text>
               <TextInput style={css.inserirInf} 
-              placeholder="Digite o endereço do paciente"/>
+              placeholder="Digite o endereço do paciente"
+              value={endereco}
+              onChangeText={(inputEndereco) => setEndereco(inputEndereco)}/>
             </View>
             <View style={css.containerInf}>
               <Text style={css.nomeInf}>Data de nascimento:</Text>
@@ -95,7 +131,7 @@ const ProntuarioFicha = () => {
                 format: 'DD/MM/YYYY',
               }}
               value={dataNascimento}
-              onChangeText={(formatted, extracted) => setdataNascimento(extracted)}/>
+              onChangeText={(formattedInputData, inputData) => setdataNascimento(inputData)}/>
             </View>
           </View>
           <View style={css.containerFilho3}>
@@ -103,19 +139,17 @@ const ProntuarioFicha = () => {
               <Text style={css.nomeInf}>Peso(KG)</Text>
               <TextInput style={css.inserirInf2}
               placeholder="Digite o peso" 
-              type={'custom'}
               keyboardType="numeric"
               value={peso}
-              onChangeText={(input) => setPeso(input.replace(/[^0-9,]/g, ''))}/>
+              onChangeText={(inputPeso) => setPeso(inputPeso.replace(/[^0-9,]/g, ''))}/>
             </View>
             <View style={css.containerInf2}>
               <Text style={css.nomeInf}>Altura(metros)</Text>
               <TextInput style={css.inserirInf2} 
               placeholder="Digite a altura"
-              type={'custom'}
               keyboardType="numeric"
               value={altura}
-              onChangeText={(input) => setAltura(input.replace(/[^0-9,]/g, ''))}/>
+              onChangeText={(inputAltura) => setAltura(inputAltura.replace(/[^0-9,]/g, ''))}/>
             </View>
           </View>
           <View style={css.containerFilho3}>
@@ -124,16 +158,16 @@ const ProntuarioFicha = () => {
               <RNPickerSelect style={css}
               value={sexo}
               items={sexoOpções}
-              onValueChange={(value) => setSexo(value)}
+              onValueChange={(selectSexo) => setSexo(selectSexo)}
               placeholder={{ label: 'Selecione...', value: null}}/>
             </View>
             <View style={css.containerInf2}>
               <Text style={css.nomeInf}>Tipo sanguíneo</Text>
               <RNPickerSelect style={css} 
-              value={sangue}
+              placeholder={{ label: 'Selecione...', value: null}}
               items={sangueOpções}
-              onValueChange={(value) => setSangue(value)}
-              placeholder={{ label: 'Selecione...', value: null}}/>
+              onValueChange={(selectSangue) => setSangue(selectSangue)}
+              value={sangue}/>
             </View>
           </View>
         </View>
@@ -144,28 +178,44 @@ const ProntuarioFicha = () => {
           <View style={css.containerAnotacoes}>
             <Text style={css.tituloAnotacoes}>Queixa Principal</Text>
             <TextInput style={css.inserirAnotacoes}
-            multiline={true}/>
+            multiline={true}
+            value={queixa}
+            onChangeText={(inputQueixa) => setQueixa(inputQueixa)}/>
             <Text style={css.tituloAnotacoes}>Histórico</Text>
             <TextInput style={css.inserirAnotacoes}
-            multiline={true}/>
+            multiline={true}
+            value={historico}
+            onChangeText={(inputHistorico) => setHistorico(inputHistorico)}/>
             <Text style={css.tituloAnotacoes}>Alergias</Text>
             <TextInput style={css.inserirAnotacoes}
-            multiline={true}/>
+            multiline={true}
+            value={alergias}
+            onChangeText={(inputAlergias) => setAlergias(inputAlergias)}/>
             <Text style={css.tituloAnotacoes}>CID</Text>
             <TextInput style={css.inserirAnotacoes}
-            multiline={true}/>
+            multiline={true}
+            value={cid}
+            onChangeText={(inputCid) => setCid(inputCid)}/>
             <Text style={css.tituloAnotacoes}>Exame Físico</Text>
             <TextInput style={css.inserirAnotacoes}
-            multiline={true}/>
+            multiline={true}
+            value={exameF}
+            onChangeText={(inputExamef) => setExamef(inputExamef)}/>
             <Text style={css.tituloAnotacoes}>Conduta</Text>
             <TextInput style={css.inserirAnotacoes}
-            multiline={true}/>
+            multiline={true}
+            value={conduta}
+            onChangeText={(inputConduta) => setConduta(inputConduta)}/>
             <Text style={css.tituloAnotacoes}>Hipótese de Diagnóstico</Text>
             <TextInput style={css.inserirAnotacoes}
-            multiline={true}/>
+            multiline={true}
+            value={hipoteseD}
+            onChangeText={(inputHipotesed) => setHipotesed(inputHipotesed)}/>
             <Text style={css.tituloAnotacoes}>Diagnóstico</Text>
             <TextInput style={css.inserirAnotacoes}
-            multiline={true}/>
+            multiline={true}
+            value={diagnostico}
+            onChangeText={(inputDiagnostico) => setDiagnostico(inputDiagnostico)}/>
             <Text style={css.tituloAnotacoes}>Resultado dos Exames</Text>
             <TextInput style={css.inserirAnotacoes}
             multiline={true}/>
@@ -182,12 +232,12 @@ const ProntuarioFicha = () => {
                 Salvar
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={css.botaoFooter}>
+          <TouchableOpacity style={css.botaoFooter} onPress={ () => navigation.navigate('Login')}>
             <Text style={css.botaoFooterText}>
                 Voltar
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={css.botaoFooter}>
+          <TouchableOpacity style={css.botaoFooter} onPress={excluirFormulario}>
             <Text style={css.botaoFooterText}>
                 Excluir
             </Text>
