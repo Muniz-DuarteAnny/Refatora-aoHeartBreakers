@@ -11,6 +11,8 @@ import { TextInputMask } from 'react-native-masked-text';
 import RNPickerSelect from 'react-native-picker-select';
 import { useNavigation } from '@react-navigation/native';
 
+
+
 const ProntuarioFicha = () => {
 
   const navigation = useNavigation();//remove
@@ -34,6 +36,30 @@ const ProntuarioFicha = () => {
   const [diagnostico, setDiagnostico] = useState('');
   //const [resultadosE, setResultadose] = useState('');
 
+  const handleProntuario = () => {
+    // verificar as credenciais no servidor.
+  
+    console.log(nome)
+    console.log(cpf) 
+    console.log(rg)
+    console.log(endereco)
+    console.log(dataNascimento)
+    console.log(peso)
+    console.log(altura)
+    console.log(sexo)
+    console.log(sangue)
+    console.log(queixa)
+    console.log(historico)
+    console.log(alergias)
+    console.log(exameF)
+    console.log(cid)
+    console.log(conduta)
+    console.log(hipoteseD)
+     console.log(diagnostico)
+  };
+
+
+
   //adiciona opções nos inputs
   const sexoOpções = [
     {label: 'Masculino', value: 'M'},
@@ -42,14 +68,14 @@ const ProntuarioFicha = () => {
   ];
 
   const sangueOpções =[
-    {label: 'A+', value: '1'},
-    {label: 'A-', value: '2'},
-    {label: 'B+', value: '3'},
-    {label: 'B-', value: '4'},
-    {label: 'AB+', value: '5'},
-    {label: 'AB-', value: '6'},
-    {label: 'O+', value: '7'},
-    {label: 'O-', value: '8'},
+    {label: 'A+', value: 'A+'},
+    {label: 'A-', value: 'A-'},
+    {label: 'B+', value: 'B+'},
+    {label: 'B-', value: 'B-'},
+    {label: 'AB+', value: 'AB+'},
+    {label: 'AB-', value: 'AB-'},
+    {label: 'O+', value: 'O+'},
+    {label: 'O-', value: 'O-'},
   ]
 
   const excluirFormulario = () => {
@@ -100,7 +126,7 @@ const ProntuarioFicha = () => {
               <TextInputMask style={css.inserirInf} 
               type={'cpf'}
               value={cpf}
-              onChangeText={(formattedInputCpf, inputCpf) => setCpf(inputCpf)}
+              onChangeText={(inputCpf) => setCpf(inputCpf)}
               placeholder="Digite o CPF do paciente"/>
             </View>
             <View style={css.containerInf}>
@@ -112,7 +138,7 @@ const ProntuarioFicha = () => {
                   mask: 'AA-99.999.999',
                 }}
                 value={rg}
-                onChangeText={(formattedInputRg, inputRg) => {setRg(inputRg);}}
+                onChangeText={(inputRg) => {setRg(inputRg);}}
               />
             </View>
             <View style={css.containerInf}>
@@ -131,7 +157,7 @@ const ProntuarioFicha = () => {
                 format: 'DD/MM/YYYY',
               }}
               value={dataNascimento}
-              onChangeText={(formattedInputData, inputData) => setdataNascimento(inputData)}/>
+              onChangeText={(inputData) => setdataNascimento(inputData)}/>
             </View>
           </View>
           <View style={css.containerFilho3}>
@@ -227,8 +253,8 @@ const ProntuarioFicha = () => {
           </View>
         </View> 
         <View style={css.footerbotoes}>
-          <TouchableOpacity style={css.botaoFooter}>
-            <Text style={css.botaoFooterText}>
+          <TouchableOpacity style={css.botaoFooter} onPress={handleProntuario}>
+            <Text style={css.botaoFooterText}> 
                 Salvar
             </Text>
           </TouchableOpacity>
@@ -248,4 +274,5 @@ const ProntuarioFicha = () => {
   )
 }
 
+ 
 export default ProntuarioFicha;
