@@ -81,11 +81,11 @@ const ProntuarioFicha = () => {
   const excluirFormulario = () => {
     setNome('');
     setEndereco('');
-    //setdataNascimento('');
+    setdataNascimento('');
     setAltura('');
     setPeso('');
-    //setCpf('');
-    //setRg('');
+    setCpf('');
+    setRg('');
     setSexo('');
     setSangue('');
     setQueixa('');
@@ -96,7 +96,6 @@ const ProntuarioFicha = () => {
     setConduta('');
     setHipotesed('');
     setDiagnostico('');
-    //setResultadose('');
   };
 
   //marcação da página
