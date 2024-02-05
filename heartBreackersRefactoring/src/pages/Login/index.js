@@ -55,7 +55,7 @@ const LoginScreen = () => {
       <View style={css.containerLogin}>
 
         {/* Teste */}
-        <Text>CPF: {cpf} - Senha: {password}</Text>
+        {/* <Text>CPF: {cpf} - Senha: {password}</Text> */}
 
 
         <Image source={HB} style={css.logoLogin} />
@@ -89,9 +89,9 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         {/* Teste */}
-        <TouchableOpacity style={css.buttonLogin} onPress={ () => navigation.navigate('Prontuario')}>
+        {/* <TouchableOpacity style={css.buttonLogin} onPress={ () => navigation.navigate('Prontuario')}>
           <Text style={css.buttonTextLogin}>prontuarioRemover</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </ImageBackground>
   );
