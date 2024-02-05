@@ -17,7 +17,7 @@ export default function Routes(){
     <Stack.Navigator>
         {/* As Stack.Screen são as telas a serem renderizadas*/}
         <Stack.Screen
-            name="Landing"
+            name="Primeira"
             component={Landing}
             options={{headerShown: false}}
         />
@@ -27,17 +27,17 @@ export default function Routes(){
             options={{headerShown: false}}
         />
         <Stack.Screen
-            name="Main"
+            name="Principal"
             component={Main}
             options={{headerShown: false}}
         />
         <Stack.Screen
-            name="Search"
+            name="Pesquisa"
             component={Search}
             options={{headerShown: false}}
         />
         <Stack.Screen
-            name="SignUp"
+            name="Cadastro"
             component={SignUp}
             options={{headerShown: false}}
         />

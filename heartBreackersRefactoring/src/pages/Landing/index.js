@@ -3,60 +3,40 @@ import {
     View,
     TouchableOpacity
 } from 'react-native';
+
 import * as Animatable from 'react-native-animatable';
+
 import { useNavigation } from '@react-navigation/native';
+
 import {css} from '../../Style/css';
 
 export default function Landing() {
   const navigation = useNavigation();
-
-  const handlePressSignup = () => {
-    console.log('Navegando para  o componente: Signup');
-    navigation.navigate('SignUp');
-  };
-
-  const handlePressLogin = () => {
-    console.log('Navegando para  o componente: Login');
-    navigation.navigate('Login');
-  };
-  
   return (
-    <View style={css.containerLanding}>
+    <View style={css.container}>
 
-      <View style={css.containerLogoLanding}>
-        <Animatable.Image delay={600} style={(css.logoHBLanding)}
+      <View style={css.containerLogo}>
+        <Animatable.Image delay={600} style={(css.logoHB)}
           animation="flipInY"
           source={require('../../assets/whiteLogoHB.png')}
         />
       </View>
         
-      <Animatable.View delay={800} animation="fadeInUp" style={css.containerFormLanding}>
-        <Text style={css.titleLanding}>Monitoramento de prontuário Heart Breakers!</Text>
-        <Text style={css.textLanding}>Faça login ou cadastre-se para acessar o sistema.</Text>
+      <Animatable.View delay={800} animation="fadeInUp" style={css.containerForm}>
+        <Text style={css.title}>Monitoramento de prontuário Heart Breakers!</Text>
+        <Text style={css.text}>Faça login para acessar o sistema.</Text>
 
-        <View style={css.containerButtonsLanding}>
-          {/* Botão de login */}
+        <Animatable.View animation="zoomInUp" delay={1200} duration={2000} style={css.containerButton}>
           <TouchableOpacity
-          style={css.buttonLoginLanding}
           activeOpacity={0.7}
-          onPress={handlePressLogin}
+          style={css.button}
+          onPress={ () => navigation.navigate('Login')}
           >
-            <Text style={css.buttonLoginTextLanding}>
-              Logar
+            <Text style={css.buttonEnter}>
+              Entrar
             </Text>
           </TouchableOpacity>
-
-          {/* Botão de signup */}
-          <TouchableOpacity
-          style={css.buttonSignupLanding}
-          activeOpacity={0.7}
-          onPress={handlePressSignup}
-          >
-            <Text style={css.buttonSignupTextLanding}>
-              Cadastrar
-            </Text>
-          </TouchableOpacity>
-        </View>
+        </Animatable.View>
       </Animatable.View>
     </View>
   );
