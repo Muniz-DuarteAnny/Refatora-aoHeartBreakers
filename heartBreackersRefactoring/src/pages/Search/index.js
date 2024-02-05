@@ -17,12 +17,13 @@ const Search = ({ navigation }) => {
     setMedicalRecord(unrealData);
   }, []);
 
-  // filtragem da lista de pacientes
+  // filtragem da lista de pacientes por nome ou num de prontuário
   const handleFilterPatient = () => {
   const filteredData = unrealData.filter(item => {
     const patientName = item.nome.toLowerCase();
+    const patientRecordNumber = item.codigoProntuario.toLowerCase();
     const filterText = filterPatient.toLowerCase();
-    return patientName.includes(filterText);
+    return patientName.includes(filterText) || patientRecordNumber.includes(filterText);
   });
 
   setMedicalRecord(filteredData);
