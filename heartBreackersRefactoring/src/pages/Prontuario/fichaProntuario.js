@@ -18,11 +18,12 @@ const ProntuarioFicha = () => {
   const navigation = useNavigation();//remove
   //pega o que foi inserido no input e filtra na máscara e depois seta no input
   const [nome, setNome] = useState('');
+  const [foto, setFoto] = useState('');
   const [endereco, setEndereco] = useState('');
   const [dataNascimento, setdataNascimento] = useState('');
   const [altura, setAltura] = useState('');
   const [peso, setPeso] = useState('');
-  const [cpf, setCpf] = useState('');
+  const [cpf, setCpf] = usinstalleState('');
   const [rg, setRg] = useState('');
   const [sexo, setSexo] = useState(null);
   const [sangue, setSangue] = useState(null);
@@ -80,6 +81,7 @@ const ProntuarioFicha = () => {
 
   const excluirFormulario = () => {
     setNome('');
+    setFoto('');
     setEndereco('');
     setdataNascimento('');
     setAltura('');
