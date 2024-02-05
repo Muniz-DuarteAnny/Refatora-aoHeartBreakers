@@ -23,7 +23,7 @@ const ProntuarioFicha = () => {
   const [dataNascimento, setdataNascimento] = useState('');
   const [altura, setAltura] = useState('');
   const [peso, setPeso] = useState('');
-  const [cpf, setCpf] = usinstalleState('');
+  const [cpf, setCpf] = useState('');
   const [rg, setRg] = useState('');
   const [sexo, setSexo] = useState(null);
   const [sangue, setSangue] = useState(null);

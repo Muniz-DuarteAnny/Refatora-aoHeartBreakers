@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, FlatList, TextInput, Button, StyleSheet, StatusBar } from 'react-native';
 import Item from './Item';
-import ProntuarioFicha from '../Prontuario/fichaProntuario';
 
 const Search = ({ navigation }) => {
   const [medicalRecord, setMedicalRecord] = useState([]);
@@ -24,7 +23,7 @@ const Search = ({ navigation }) => {
 
   // redirecionar a página de criacao de prontuario
   const handleNewPatient = () => {
-    navigation.navigate(ProntuarioFicha);
+    navigation.navigate('Prontuario');
   };
 
   const renderItem = ({ item }) => (
@@ -71,6 +70,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#808080',
     padding: 10,
+    paddingTop: 45
+
   },  
   input: {
     width: '60%',

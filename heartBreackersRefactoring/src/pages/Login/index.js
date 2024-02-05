@@ -24,7 +24,7 @@ const LoginScreen = () => {
     console.log('CPF inserido:', cpf);
     console.log('Senha inserida:', password);
 
-    navigation.navigate('Main');
+    navigation.navigate('Search');
   };
 
   useEffect(() => {
