@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, TextInput, Button, StyleSheet, StatusBar } from 'react-native';
+import { Text, View, FlatList, TextInput, Button, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 import Item from './Item';
+import {css} from '../../Style/css'
 
 const Search = ({ navigation }) => {
   const [medicalRecord, setMedicalRecord] = useState([]);
@@ -47,8 +48,13 @@ const Search = ({ navigation }) => {
         />
 
       {/* botões */}
-        <Button title="Buscar" color="#9A0019" onPress={handleFilterPatient} />
-        <Button title="Novo" color="#9A0019" onPress={handleNewPatient} />
+        <TouchableOpacity style={styles.buttons} title="Buscar" onPress={handleFilterPatient}>
+        <Text style={styles.buttonsText}> BUSCAR </Text>
+          </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttons} title="Novo" onPress={handleNewPatient}>
+          <Text style={styles.buttonsText}> NOVO </Text>
+        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -64,6 +70,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  buttons: {
+    backgroundColor: '#B22222',
+    paddingVertical: 11 ,
+    paddingHorizontal: 9,
+    borderRadius: 50,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  buttonsText: {
+    fontWeight: 'bold',
+        fontSize: 13,
+        color: '#FFF',
+  },
+
   searchBar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
