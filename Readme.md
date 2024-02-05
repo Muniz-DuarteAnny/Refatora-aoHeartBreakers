@@ -40,5 +40,14 @@
         *Não precisa*
         npx sequelize-cli db:migrate
 
+        npm install express --save
+
+        npm install body-parser
+
+        npm install nodemon
+
+        npm install cors
+
+
 
     

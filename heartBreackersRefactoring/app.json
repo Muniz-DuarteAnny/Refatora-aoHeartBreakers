@@ -4,10 +4,10 @@
     "slug": "heartBreackersRefactoring",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/HeartBreakersIcon.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/HeartBreakerSplash.png",
+      "image": "./assets/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
@@ -24,7 +24,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/HeartBreakersIcon.png"
+      "favicon": "./assets/icon.png"
     }
   }
 }
