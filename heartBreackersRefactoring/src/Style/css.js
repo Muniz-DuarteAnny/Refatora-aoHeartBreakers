@@ -103,13 +103,15 @@ const css = StyleSheet.create({
         marginBottom: 30,
       },
       buttonLogin: {
-        backgroundColor: '#9A0019',
+        backgroundColor: '#B22222',
         padding: 10,
-        paddingLeft: 70,
-        paddingRight: 70,
-        borderRadius: 8,
+        paddingLeft: 90,
+        paddingRight: 90,
+        borderRadius: 50,
         borderColor: "white",
         borderWidth: 0.5,
+        alignItems: 'center',
+        justifyContent: 'center'
       },
       logoLogin: {
         width: 100,

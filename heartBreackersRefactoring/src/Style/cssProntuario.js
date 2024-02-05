@@ -65,6 +65,8 @@ const css = StyleSheet.create({
       width: '50%',
       height: 30,
       borderRadius: 5,
+      borderColor: "grey",
+      borderWidth: 0.5,
     },
     botaoTrocarImagemTexto: {
       color: 'white',
@@ -77,6 +79,8 @@ const css = StyleSheet.create({
       width: '50%',
       height: 30,
       borderRadius: 5,
+      borderColor: "grey",
+      borderWidth: 0.5,
     },
     botaoAnexarTexto: {
       color: 'white',
@@ -153,8 +157,10 @@ const css = StyleSheet.create({
       backgroundColor: '#B22222',
       width: '30%',
       height: 30,
-      borderRadius: 5,
+      borderRadius: 50,
       marginBottom: 20,
+      borderColor: "white",
+      borderWidth: 0.5
     },
     botaoFooterText: {
       color: 'white',
