@@ -4,6 +4,7 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  Alert,
   ImageBackground
 } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -11,21 +12,43 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import HB from '../../assets/logoHB.png';
 import {css} from '../../Style/css';
+import { auth } from "../../services/firebaseConfig"
+import { createUserWithEmailAndPassword } from '@firebase/auth';
 
 const LoginScreen = () => {
 
   const navigation = useNavigation();
   const route = useRoute();
-  const [cpf, setCpf] = useState('');
-  const [password, setPassword] = useState('');
+  const [cpf, setCpf] = useState(null)
+  const [password, setPassword] = useState(null);
 
   const handleLogin = () => {
-    // Verificar as credenciais no servidor.
-    console.log('CPF inserido:', cpf);
-    console.log('Senha inserida:', password);
+    if (cpf == null || password == null) {
+      Alert.alert(
+        'Campos vazios',
+        'Os campos devem ser preench.'
+      );
+    } else {
+      createUserWithEmailAndPassword(auth, cpf, password)
+      .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+        // console.log(user)
+        // setUser(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
 
-    navigation.navigate('Search');
-  };
+      // Verificar as credenciais no servidor.
+      console.log('CPF inserido:', cpf);
+      console.log('Senha inserida:', password);
+
+      navigation.navigate('Search');
+    };
+  }
 
   useEffect(() => {
     const receivedCpf = route.params?.receivedCpf;
