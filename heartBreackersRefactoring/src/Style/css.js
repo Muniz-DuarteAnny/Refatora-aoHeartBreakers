@@ -114,9 +114,9 @@ const css = StyleSheet.create({
         justifyContent: 'center'
       },
       logoLogin: {
-        width: 100,
-        height: 100,
-        marginBottom: 60,
+        width: 210,
+        height: 200,
+        marginBottom: 40,
         resizeMode:"stretch",
       },
       buttonTextLogin: {
@@ -179,6 +179,11 @@ const css = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
       },
+
+      
+      textAccountLogin:{
+        color: "#fff"
+      }
 });
 
 export {css};
