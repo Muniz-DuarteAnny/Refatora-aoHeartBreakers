@@ -61,7 +61,7 @@ const css = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: 10,
-      backgroundColor: '#B22222',
+      backgroundColor: '#583493',
       width: '50%',
       height: 30,
       borderRadius: 5,
@@ -75,7 +75,7 @@ const css = StyleSheet.create({
     botaoAnexo: {
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#B22222',
+      backgroundColor: '#583493',
       width: '50%',
       height: 30,
       borderRadius: 5,
@@ -154,7 +154,7 @@ const css = StyleSheet.create({
     botaoFooter: {
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#B22222',
+      backgroundColor: '#583493',
       width: '30%',
       height: 30,
       borderRadius: 50,

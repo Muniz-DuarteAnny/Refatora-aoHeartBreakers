@@ -4,7 +4,7 @@ const css = StyleSheet.create({
       // Estilização tela Landing
       containerLanding: {
         flex: 1, //Tamanho da tela inteira
-        backgroundColor: '#B22222',
+        backgroundColor: '#583493',
         alignItems: 'center', // Alinhamento horizontal
         justifyContent: 'center', // Alinhamento vertical
       },
@@ -31,6 +31,7 @@ const css = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: 25,
         marginBottom: 10,
+        color: '#000',
       },
       textLanding: {
         color: '#A1A1A1',
@@ -44,7 +45,7 @@ const css = StyleSheet.create({
         marginTop: '10%',
       },
       buttonLoginLanding: {
-        backgroundColor: '#B22222',
+        backgroundColor: '#ff7f00',
         width: '40%',
         paddingVertical: 10,
         borderRadius: 50,
@@ -59,7 +60,7 @@ const css = StyleSheet.create({
         color: '#FFF',
       },
       buttonSignupLanding: {
-        backgroundColor: '#B22222',
+        backgroundColor: '#ff7f00',
         width: '40%',
         paddingVertical: 10,
         borderRadius: 50,
@@ -103,7 +104,7 @@ const css = StyleSheet.create({
         marginBottom: 30,
       },
       buttonLogin: {
-        backgroundColor: '#B22222',
+        backgroundColor: '#583493',
         padding: 10,
         paddingLeft: 90,
         paddingRight: 90,
@@ -135,7 +136,7 @@ const css = StyleSheet.create({
       // Estlização tela signup
       containerSignup: {
         flex: 1,
-        backgroundColor: '#B22222',
+        backgroundColor: '#583493',
       },
       containerHeaderSignup: {
         marginTop: '25%',
@@ -166,7 +167,7 @@ const css = StyleSheet.create({
         fontSize: 16
       },
       buttonSignup: {
-        backgroundColor: '#B22222',
+        backgroundColor: '#583493',
         width: '100%',
         borderRadius: 20,
         paddingVertical: 8,

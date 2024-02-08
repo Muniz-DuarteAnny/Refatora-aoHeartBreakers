@@ -12,7 +12,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import HB from '../../assets/logoHB.png';
 import {css} from '../../Style/css';
-import { auth } from "../../services/firebaseConfig"
+import { auth } from '../../Services/firebaseConfig';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
 
 const LoginScreen = () => {
@@ -26,7 +26,7 @@ const LoginScreen = () => {
     if (cpf == null || password == null) {
       Alert.alert(
         'Campos vazios',
-        'Os campos devem ser preench.'
+        'Os campos devem ser preenchidos.'
       );
     } else {
       createUserWithEmailAndPassword(auth, cpf, password)
