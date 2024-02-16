@@ -4,7 +4,7 @@
 //Caso elas não estiverem instaladas:
 //No terminal do vs redirecione para a pasta que o seu projeto esta alocado e instale as bibliotecas 
 //npm install react-native-picker-select react-native-masked-text @react-navigation/native.
-import { View, Text, TouchableOpacity, Image, TextInput, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, SectionList } from "react-native";
 import {css} from '../../Style/cssProntuario.js';
 import React, { useState } from "react";
 import { TextInputMask } from 'react-native-masked-text';
@@ -36,10 +36,13 @@ const ProntuarioFicha = () => {
   const [hipoteseD, setHipotesed] = useState('');
   const [diagnostico, setDiagnostico] = useState('');
   //const [resultadosE, setResultadose] = useState('');
+  const [inputMedicamentos, setInputMedicamentos] = useState('');
+  const [items, setItems] = useState([])
+  const renderItem = ({ item }) => <Text style={css.item}>{item.texto}</Text>;
 
   const handleProntuario = () => {
     // verificar as credenciais no servidor.
-  
+    
     console.log(nome)
     console.log(cpf) 
     console.log(rg)
@@ -100,6 +103,12 @@ const ProntuarioFicha = () => {
     setDiagnostico('');
   };
 
+  const adicionarItem = () => {
+    if (inputMedicamentos.trim() !== '') {
+      setItems([...items, { id: items.length.toString(), texto: inputMedicamentos }]);
+      setInputMedicamentos('');
+    }
+  };
   //marcação da página
   return (
     <ScrollView>
@@ -246,16 +255,33 @@ const ProntuarioFicha = () => {
             <Text style={css.tituloAnotacoes}>Resultado dos Exames</Text>
             <TextInput style={css.inserirAnotacoes}
             multiline={true}/>
-            <TouchableOpacity style={css.botaoAnexo}>
+            <TouchableOpacity style={[css.botaoAnexo, {marginBottom: 30,}]} >
               <Text style={css.botaoAnexarTexto}>
-                Baixar Anexo
+                Anexar arquivo
               </Text>
             </TouchableOpacity>
+            <Text style={css.tituloAnotacoes}>Medicamentos</Text>
+            <TextInput style={css.inserirMedicamentos}
+            value={inputMedicamentos}
+            onChangeText={text => setInputMedicamentos(text)}/>
+            <TouchableOpacity style={css.botaoAnexo} onPress= {adicionarItem}>
+              <Text style={css.botaoAnexarTexto}>
+                Adicionar Medicamentos
+              </Text>
+            </TouchableOpacity>
+            <SectionList
+              sections={[{ title: 'Lista', data: items }]}
+              renderItem={renderItem}
+              renderSectionHeader={({ section: { title } }) => (
+                <Text >{title}</Text>
+              )}
+              keyExtractor={(item, index) => item.id}
+            />
           </View>
         </View> 
         <View style={css.footerbotoes}>
           <TouchableOpacity style={css.botaoFooter} onPress={handleProntuario}>
-            <Text style={css.botaoFooterText}> 
+            <Text style={css.botaoFooterText}>
                 Salvar
             </Text>
           </TouchableOpacity>
@@ -272,6 +298,7 @@ const ProntuarioFicha = () => {
         </View>
       </View>  
     </ScrollView >
+    
   )
 }
 

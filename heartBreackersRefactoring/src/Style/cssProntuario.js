@@ -145,6 +145,15 @@ const css = StyleSheet.create({
       paddingRight: 5,
   
     },
+    inserirMedicamentos: {
+      borderRadius: 5,
+      marginBottom: 30,
+      backgroundColor: 'white',
+      width: '70%',
+      paddingLeft: 5,
+      paddingRight: 5,
+  
+    },
     footerbotoes: {
       flex: 1,
       justifyContent: 'space-around',
@@ -165,6 +174,10 @@ const css = StyleSheet.create({
     botaoFooterText: {
       color: 'white',
       fontWeight: 'bold',
+    },
+    item: {
+      fontSize: 18,
+      marginBottom: 5,
     },
   });
 
