@@ -39,7 +39,6 @@ const ProntuarioFicha = () => {
   const [inputMedicamentos, setInputMedicamentos] = useState('');
   const [items, setItems] = useState([])
   const renderItem = ({ item }) => <Text style={css.item}>{item.texto}</Text>;
-
   const handleProntuario = () => {
     // verificar as credenciais no servidor.
     
@@ -101,6 +100,7 @@ const ProntuarioFicha = () => {
     setConduta('');
     setHipotesed('');
     setDiagnostico('');
+    setItems([])
   };
 
   const adicionarItem = () => {
@@ -270,7 +270,9 @@ const ProntuarioFicha = () => {
               </Text>
             </TouchableOpacity>
             <SectionList
-              sections={[{ title: 'Lista', data: items }]}
+              //sections={[{ title: 'Lista', data: items }]}
+              sections={[{data: items }]}
+              style={css.listaMedicamentos}
               renderItem={renderItem}
               renderSectionHeader={({ section: { title } }) => (
                 <Text >{title}</Text>

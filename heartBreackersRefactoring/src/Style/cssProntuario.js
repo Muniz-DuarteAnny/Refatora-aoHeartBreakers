@@ -179,6 +179,14 @@ const css = StyleSheet.create({
       fontSize: 18,
       marginBottom: 5,
     },
+    listaMedicamentos: {
+      marginTop: 10,
+      backgroundColor: 'white',
+      borderRadius: 5,
+      //justifyContent: 'center',
+      width: '70%',
+      //display: 'none',
+    },
   });
 
 export {css};
