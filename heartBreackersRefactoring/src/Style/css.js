@@ -4,7 +4,7 @@ const css = StyleSheet.create({
       // Estilização tela Landing
       containerLanding: {
         flex: 1, //Tamanho da tela inteira
-        backgroundColor: '#583493',
+        backgroundColor: '#ff7f00',
         alignItems: 'center', // Alinhamento horizontal
         justifyContent: 'center', // Alinhamento vertical
       },
@@ -104,7 +104,7 @@ const css = StyleSheet.create({
         marginBottom: 30,
       },
       buttonLogin: {
-        backgroundColor: '#583493',
+        backgroundColor: '#ff7f00',
         padding: 10,
         paddingLeft: 90,
         paddingRight: 90,
@@ -136,7 +136,7 @@ const css = StyleSheet.create({
       // Estlização tela signup
       containerSignup: {
         flex: 1,
-        backgroundColor: '#583493',
+        backgroundColor: '#ff7f00',
       },
       containerHeaderSignup: {
         marginTop: '25%',
@@ -167,7 +167,7 @@ const css = StyleSheet.create({
         fontSize: 16
       },
       buttonSignup: {
-        backgroundColor: '#583493',
+        backgroundColor: '#ff7f00',
         width: '100%',
         borderRadius: 20,
         paddingVertical: 8,
@@ -180,11 +180,181 @@ const css = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
       },
-
-      
       textAccountLogin:{
-        color: "#fff"
-      }
+        color: "#fff",
+      },
+
+      // Estlização tela record
+      containerMedicalRecord: {
+        flex: 1,
+        backgroundColor: '#DCDCDC',
+      },
+      containerRecordPatient: {
+        alignItems: 'center',
+        paddingTop: 80,
+        paddingBottom: 20,
+        paddingLeft: 10,
+        paddingRight: 10,
+      },
+      containerRecord: {
+        backgroundColor: '#A9A9A9',
+        alignItems: 'center',
+        paddingTop: 80,
+        paddingBottom: 20,
+        paddingLeft: 10,
+        paddingRight: 10,
+      },
+      containerPhoto: {
+        alignItems: 'center',
+        width: '80%',
+        marginTop: 80,
+        marginBottom: 50,
+      },
+      containerData: {
+        flex: 1,
+        flexDirection: 'column',
+        width: '80%',
+      },
+      containerData2: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '80%',
+        marginBottom: 5,
+        marginTop: 5,
+      },
+      titlePatient: {
+        fontSize: 40,
+        fontWeight: 'bold',
+        color: '#808080',
+      },
+      recordTitle: {
+        color: '#DCDCDC',
+        fontSize: 40,
+        fontWeight: 'bold',
+      },
+      profileImage: {
+        width: '60%',
+        height: 180,
+      },
+      bttImage: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        backgroundColor: '#ff7f00',
+        width: '50%',
+        height: 30,
+        borderRadius: 5,
+        borderColor: "grey",
+        borderWidth: 0.5,
+      },
+      bttImageTxt: {
+        color: 'white',
+        fontWeight: 'bold',
+      },
+      attachBtt: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#583493',
+        width: '50%',
+        height: 30,
+        borderRadius: 5,
+        borderColor: "grey",
+        borderWidth: 0.5,
+      },
+      attachBttText: {
+        color: 'white',
+        fontWeight: 'bold',
+      },
+      insertInf: {
+        backgroundColor: 'white',
+        borderRadius: 5,
+        width: '100%',
+        paddingLeft: 5,
+        fontSize: 12,
+      },
+      containerInf: {
+        marginBottom: 5,
+        marginTop: 5,
+        width: '100%',
+      },
+      nameInf: {
+        width: '100%',
+        color: '#808080',
+      },
+      containerInf2: {
+        width: '45%',
+      },
+      insertInf2: {
+        backgroundColor: 'white',
+        borderRadius: 5,
+        paddingLeft: 5,
+        fontSize: 12,
+      },
+      inputAndroid: {
+        backgroundColor: 'white',
+        borderRadius: 5,
+        paddingLeft: 5,
+        fontSize: 12,
+        color: 'black',
+      },
+      inputIOS: {
+        backgroundColor: 'white',
+        borderRadius: 5,
+        paddingLeft: 5,
+        fontSize: 12,
+      },
+      containerNotes: {
+        alignItems: 'center',
+        alignItems: 'center',
+        width: '80%',
+        marginTop: 80,
+        marginBottom: 50,
+      },
+      titleNotes: {
+        fontSize: 20,
+        color: '#DCDCDC',
+      },
+      insertNotes: {
+        borderRadius: 5,
+        marginBottom: 30,
+        width: '70%',
+        backgroundColor: 'white',
+        height: 80,
+        paddingLeft: 5,
+        paddingRight: 5,
+      },
+      footerContainer: {
+        flex: 1,
+        justifyContent: 'space-around',
+        flexDirection: 'row',
+        backgroundColor: '#A9A9A9',
+      },
+      footerBtt: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#583493',
+        width: '30%',
+        height: 30,
+        borderRadius: 50,
+        marginBottom: 20,
+        borderColor: "white",
+        borderWidth: 0.5
+      },
+      footerBttText: {
+        color: 'white',
+        fontWeight: 'bold',
+      },
+      medicinesList: {
+        marginTop: 10,
+        backgroundColor: 'white',
+        borderRadius: 5,
+        width: '70%',
+      },
+      item: {
+        fontSize: 18,
+        marginBottom: 5,
+      },
 });
 
 export {css};

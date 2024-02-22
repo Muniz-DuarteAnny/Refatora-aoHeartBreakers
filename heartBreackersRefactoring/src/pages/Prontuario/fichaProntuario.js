@@ -5,13 +5,11 @@
 //No terminal do vs redirecione para a pasta que o seu projeto esta alocado e instale as bibliotecas 
 //npm install react-native-picker-select react-native-masked-text @react-navigation/native.
 import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, SectionList } from "react-native";
-import {css} from '../../Style/cssProntuario.js';
+import {css} from '../../Style/css';
 import React, { useState } from "react";
 import { TextInputMask } from 'react-native-masked-text';
 import RNPickerSelect from 'react-native-picker-select';
 import { useNavigation } from '@react-navigation/native';
-
-
 
 const ProntuarioFicha = () => {
 
@@ -36,12 +34,13 @@ const ProntuarioFicha = () => {
   const [hipoteseD, setHipotesed] = useState('');
   const [diagnostico, setDiagnostico] = useState('');
   //const [resultadosE, setResultadose] = useState('');
-  const [inputMedicamentos, setInputMedicamentos] = useState('');
+  const [inputMedicines, setInputMedicines] = useState('');
   const [items, setItems] = useState([])
   const renderItem = ({ item }) => <Text style={css.item}>{item.texto}</Text>;
+
   const handleProntuario = () => {
     // verificar as credenciais no servidor.
-    
+  
     console.log(nome)
     console.log(cpf) 
     console.log(rg)
@@ -60,8 +59,6 @@ const ProntuarioFicha = () => {
     console.log(hipoteseD)
      console.log(diagnostico)
   };
-
-
 
   //adiciona opções nos inputs
   const sexoOpções = [
@@ -100,48 +97,49 @@ const ProntuarioFicha = () => {
     setConduta('');
     setHipotesed('');
     setDiagnostico('');
-    setItems([])
+    setItems([]);
   };
 
-  const adicionarItem = () => {
-    if (inputMedicamentos.trim() !== '') {
-      setItems([...items, { id: items.length.toString(), texto: inputMedicamentos }]);
-      setInputMedicamentos('');
+  const addItem = () => {
+    if (inputMedicines.trim() !== '') {
+      setItems([...items, { id: items.length.toString(), texto: inputMedicines }]);
+      setInputMedicines('');
     }
   };
+
   //marcação da página
   return (
     <ScrollView>
-      <View style={css.pai}>
-        <View style={css.containerPaiFichadopaciente}>
-          <Text style={css.tituloFicha}>
+      <View style={css.containerMedicalRecord}>
+        <View style={css.containerRecordPatient}>
+          <Text style={css.titlePatient}>
             FICHA DO PACIENTE
           </Text>
-          <View style={css.containerFilho1}>
-            <Image source={require("../../assets/perfil.png")} style={css.imagemPerfil}></Image>
-            <TouchableOpacity style={css.botaoTrocarImagem}>
-              <Text style={css.botaoTrocarImagemTexto}>Trocar foto</Text>
+          <View style={css.containerPhoto}>
+            <Image source={require("../../assets/perfil.png")} style={css.profileImage}></Image>
+            <TouchableOpacity style={css.bttImage}>
+              <Text style={css.bttImageTxt}>Trocar foto</Text>
             </TouchableOpacity>
           </View>
-          <View style={css.containerFilho2}>
+          <View style={css.containerData}>
             <View style={css.containerInf}>
-              <Text style={css.nomeInf}>Nome:</Text>
-              <TextInput style={css.inserirInf} 
+              <Text style={css.nameInf}>Nome:</Text>
+              <TextInput style={css.insertInf} 
               placeholder="Digite o nome do paciente"
               value= {nome}
               onChangeText={(inputNome) => setNome(inputNome.replace(/[^a-zA-Z\s]/g, ''))}/>
             </View>
             <View style={css.containerInf}>
-              <Text style={css.nomeInf}>CPF:</Text>
-              <TextInputMask style={css.inserirInf} 
+              <Text style={css.nameInf}>CPF:</Text>
+              <TextInputMask style={css.insertInf} 
               type={'cpf'}
               value={cpf}
               onChangeText={(inputCpf) => setCpf(inputCpf)}
               placeholder="Digite o CPF do paciente"/>
             </View>
             <View style={css.containerInf}>
-              <Text style={css.nomeInf}>RG:</Text>
-              <TextInputMask style={css.inserirInf} 
+              <Text style={css.nameInf}>RG:</Text>
+              <TextInputMask style={css.insertInf} 
                 placeholder="Digite o RG do paciente"
                 type={'custom'}
                 options={{
@@ -152,15 +150,15 @@ const ProntuarioFicha = () => {
               />
             </View>
             <View style={css.containerInf}>
-              <Text style={css.nomeInf}>Endereço:</Text>
-              <TextInput style={css.inserirInf} 
+              <Text style={css.nameInf}>Endereço:</Text>
+              <TextInput style={css.insertInf} 
               placeholder="Digite o endereço do paciente"
               value={endereco}
               onChangeText={(inputEndereco) => setEndereco(inputEndereco)}/>
             </View>
             <View style={css.containerInf}>
-              <Text style={css.nomeInf}>Data de nascimento:</Text>
-              <TextInputMask style={css.inserirInf} 
+              <Text style={css.nameInf}>Data de nascimento:</Text>
+              <TextInputMask style={css.insertInf} 
               placeholder="Selecione a data de nascimento do paciente"
               type={'datetime'}
               options={{
@@ -170,18 +168,18 @@ const ProntuarioFicha = () => {
               onChangeText={(inputData) => setdataNascimento(inputData)}/>
             </View>
           </View>
-          <View style={css.containerFilho3}>
+          <View style={css.containerData2}>
             <View style={css.containerInf2}>
-              <Text style={css.nomeInf}>Peso(KG)</Text>
-              <TextInput style={css.inserirInf2}
+              <Text style={css.nameInf}>Peso(KG)</Text>
+              <TextInput style={css.insertInf2}
               placeholder="Digite o peso" 
               keyboardType="numeric"
               value={peso}
               onChangeText={(inputPeso) => setPeso(inputPeso.replace(/[^0-9,]/g, ''))}/>
             </View>
             <View style={css.containerInf2}>
-              <Text style={css.nomeInf}>Altura(metros)</Text>
-              <TextInput style={css.inserirInf2} 
+              <Text style={css.nameInf}>Altura(metros)</Text>
+              <TextInput style={css.insertInf2} 
               placeholder="Digite a altura"
               keyboardType="numeric"
               value={altura}
@@ -190,7 +188,7 @@ const ProntuarioFicha = () => {
           </View>
           <View style={css.containerFilho3}>
             <View style={css.containerInf2}>
-              <Text style={css.nomeInf}>Sexo</Text>
+              <Text style={css.nameInf}>Sexo</Text>
               <RNPickerSelect style={css}
               value={sexo}
               items={sexoOpções}
@@ -198,7 +196,7 @@ const ProntuarioFicha = () => {
               placeholder={{ label: 'Selecione...', value: null}}/>
             </View>
             <View style={css.containerInf2}>
-              <Text style={css.nomeInf}>Tipo sanguíneo</Text>
+              <Text style={css.nameInf}>Tipo sanguíneo</Text>
               <RNPickerSelect style={css} 
               placeholder={{ label: 'Selecione...', value: null}}
               items={sangueOpções}
@@ -207,72 +205,76 @@ const ProntuarioFicha = () => {
             </View>
           </View>
         </View>
-        <View style={css.containerPaiProntuariodopaciente}>
-          <Text style={css.tituloProntuario}>
+        <View style={css.containerRecord}>
+          <Text style={css.recordTitle}>
             PRONTUARIO
           </Text>
-          <View style={css.containerAnotacoes}>
-            <Text style={css.tituloAnotacoes}>Queixa Principal</Text>
-            <TextInput style={css.inserirAnotacoes}
+          <View style={css.containerNotes}>
+            <Text style={css.titleNotes}>Queixa Principal</Text>
+            <TextInput style={css.insertNotes}
             multiline={true}
             value={queixa}
             onChangeText={(inputQueixa) => setQueixa(inputQueixa)}/>
-            <Text style={css.tituloAnotacoes}>Histórico</Text>
-            <TextInput style={css.inserirAnotacoes}
+            <Text style={css.titleNotes}>Histórico</Text>
+            <TextInput style={css.insertNotes}
             multiline={true}
             value={historico}
             onChangeText={(inputHistorico) => setHistorico(inputHistorico)}/>
-            <Text style={css.tituloAnotacoes}>Alergias</Text>
-            <TextInput style={css.inserirAnotacoes}
+            <Text style={css.titleNotes}>Alergias</Text>
+            <TextInput style={css.insertNotes}
             multiline={true}
             value={alergias}
             onChangeText={(inputAlergias) => setAlergias(inputAlergias)}/>
-            <Text style={css.tituloAnotacoes}>CID</Text>
-            <TextInput style={css.inserirAnotacoes}
+            <Text style={css.titleNotes}>CID</Text>
+            <TextInput style={css.insertNotes}
             multiline={true}
             value={cid}
             onChangeText={(inputCid) => setCid(inputCid)}/>
-            <Text style={css.tituloAnotacoes}>Exame Físico</Text>
-            <TextInput style={css.inserirAnotacoes}
+            <Text style={css.titleNotes}>Exame Físico</Text>
+            <TextInput style={css.insertNotes}
             multiline={true}
             value={exameF}
             onChangeText={(inputExamef) => setExamef(inputExamef)}/>
-            <Text style={css.tituloAnotacoes}>Conduta</Text>
-            <TextInput style={css.inserirAnotacoes}
+            <Text style={css.titleNotes}>Conduta</Text>
+            <TextInput style={css.insertNotes}
             multiline={true}
             value={conduta}
             onChangeText={(inputConduta) => setConduta(inputConduta)}/>
-            <Text style={css.tituloAnotacoes}>Hipótese de Diagnóstico</Text>
-            <TextInput style={css.inserirAnotacoes}
+            <Text style={css.titleNotes}>Hipótese de Diagnóstico</Text>
+            <TextInput style={css.insertNotes}
             multiline={true}
             value={hipoteseD}
             onChangeText={(inputHipotesed) => setHipotesed(inputHipotesed)}/>
-            <Text style={css.tituloAnotacoes}>Diagnóstico</Text>
-            <TextInput style={css.inserirAnotacoes}
+            <Text style={css.titleNotes}>Diagnóstico</Text>
+            <TextInput style={css.insertNotes}
             multiline={true}
             value={diagnostico}
             onChangeText={(inputDiagnostico) => setDiagnostico(inputDiagnostico)}/>
-            <Text style={css.tituloAnotacoes}>Resultado dos Exames</Text>
-            <TextInput style={css.inserirAnotacoes}
+            <Text style={css.titleNotes}>Resultado dos Exames</Text>
+            <TextInput style={css.insertNotes}
             multiline={true}/>
-            <TouchableOpacity style={[css.botaoAnexo, {marginBottom: 30,}]} >
-              <Text style={css.botaoAnexarTexto}>
+            <TouchableOpacity style={css.attachBtt}>
+              <Text style={css.attachBttText}>
+                Baixar Anexo
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[css.attachBtt, {marginBottom: 30,}]} >
+              <Text style={css.attachBttText}>
                 Anexar arquivo
               </Text>
             </TouchableOpacity>
-            <Text style={css.tituloAnotacoes}>Medicamentos</Text>
-            <TextInput style={css.inserirMedicamentos}
-            value={inputMedicamentos}
-            onChangeText={text => setInputMedicamentos(text)}/>
-            <TouchableOpacity style={css.botaoAnexo} onPress= {adicionarItem}>
-              <Text style={css.botaoAnexarTexto}>
+            <Text style={css.titleNotes}>Medicamentos</Text>
+            <TextInput style={css.insertMedicines}
+            value={inputMedicines}
+            onChangeText={text => setInputMedicines(text)}/>
+            <TouchableOpacity style={css.attachBtt} onPress= {addItem}>
+              <Text style={css.attachBttText}>
                 Adicionar Medicamentos
               </Text>
             </TouchableOpacity>
             <SectionList
-              //sections={[{ title: 'Lista', data: items }]}
               sections={[{data: items }]}
-              style={css.listaMedicamentos}
+              style={css.medicinesList}
               renderItem={renderItem}
               renderSectionHeader={({ section: { title } }) => (
                 <Text >{title}</Text>
@@ -281,26 +283,25 @@ const ProntuarioFicha = () => {
             />
           </View>
         </View> 
-        <View style={css.footerbotoes}>
-          <TouchableOpacity style={css.botaoFooter} onPress={handleProntuario}>
-            <Text style={css.botaoFooterText}>
+        <View style={css.footerContainer}>
+          <TouchableOpacity style={css.footerBtt} onPress={handleProntuario}>
+            <Text style={css.footerBttText}> 
                 Salvar
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={css.botaoFooter} onPress={ () => navigation.navigate('Login')}>
-            <Text style={css.botaoFooterText}>
+          <TouchableOpacity style={css.footerBtt} onPress={ () => navigation.navigate('Login')}>
+            <Text style={css.footerBttText}>
                 Voltar
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={css.botaoFooter} onPress={excluirFormulario}>
-            <Text style={css.botaoFooterText}>
+          <TouchableOpacity style={css.footerBtt} onPress={excluirFormulario}>
+            <Text style={css.footerBttText}>
                 Excluir
             </Text>
           </TouchableOpacity>
         </View>
       </View>  
     </ScrollView >
-    
   )
 }
 
