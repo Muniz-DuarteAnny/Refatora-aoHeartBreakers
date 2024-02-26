@@ -35,7 +35,8 @@ const ProntuarioFicha = () => {
   const [diagnostico, setDiagnostico] = useState('');
   //const [resultadosE, setResultadose] = useState('');
   const [inputMedicines, setInputMedicines] = useState('');
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
+  const [widthSection, setWidth] = useState('0%');
   const renderItem = ({ item }) => <Text style={css.item}>{item.texto}</Text>;
 
   const handleProntuario = () => {
@@ -98,12 +99,18 @@ const ProntuarioFicha = () => {
     setHipotesed('');
     setDiagnostico('');
     setItems([]);
+    if (widthSection === '70%'){
+      setWidth('0%')
+    }
   };
 
   const addItem = () => {
     if (inputMedicines.trim() !== '') {
       setItems([...items, { id: items.length.toString(), texto: inputMedicines }]);
       setInputMedicines('');
+      if (widthSection === '0%'){
+        setWidth('70%')
+      }
     }
   };
 
@@ -253,11 +260,6 @@ const ProntuarioFicha = () => {
             <Text style={css.titleNotes}>Resultado dos Exames</Text>
             <TextInput style={css.insertNotes}
             multiline={true}/>
-            <TouchableOpacity style={css.attachBtt}>
-              <Text style={css.attachBttText}>
-                Baixar Anexo
-              </Text>
-            </TouchableOpacity>
             <TouchableOpacity style={[css.attachBtt, {marginBottom: 30,}]} >
               <Text style={css.attachBttText}>
                 Anexar arquivo
@@ -274,7 +276,7 @@ const ProntuarioFicha = () => {
             </TouchableOpacity>
             <SectionList
               sections={[{data: items }]}
-              style={css.medicinesList}
+              style={[css.medicinesList, {width: widthSection}]}
               renderItem={renderItem}
               renderSectionHeader={({ section: { title } }) => (
                 <Text >{title}</Text>

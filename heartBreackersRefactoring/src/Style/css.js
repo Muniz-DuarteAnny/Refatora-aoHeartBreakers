@@ -355,6 +355,22 @@ const css = StyleSheet.create({
         fontSize: 18,
         marginBottom: 5,
       },
+      containerFilho3: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '80%',
+        marginBottom: 5,
+        marginTop: 5,
+      },
+      insertMedicines: {
+        borderRadius: 5,
+        marginBottom: 30,
+        backgroundColor: 'white',
+        width: '70%',
+        paddingLeft: 5,
+        paddingRight: 5,
+      },
 });
 
 export {css};
