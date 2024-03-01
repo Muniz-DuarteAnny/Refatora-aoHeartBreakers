@@ -14,6 +14,7 @@ import HB from '../../assets/logoHB.png';
 import {css} from '../../Style/css';
 import { auth } from '../../Services/firebaseConfig';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
+import { TextInputMask } from 'react-native-masked-text';
 
 const LoginScreen = () => {
 
@@ -84,9 +85,14 @@ const LoginScreen = () => {
         <Image source={HB} style={css.logoLogin} />
         <Text style={css.titleLogin}>BEM-VINDO(A)!</Text>
 
-        <TextInput
+        <TextInputMask
           style={css.inputLogin}
+          type={'cpf'}
+          options={{
+            format: "###.###.###-##",
+          }}
           placeholder="CPF"
+          keyboardType="numeric"
           placeholderTextColor={"white"}
           onChangeText={text => setCpf(text)}
           value={cpf}
@@ -96,6 +102,7 @@ const LoginScreen = () => {
           style={css.inputLogin}
           secureTextEntry
           placeholder="SENHA"
+          keyboardType="password"
           placeholderTextColor={"white"}
           onChangeText={text => setPassword(text)}
           value={password}
