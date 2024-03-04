@@ -45,7 +45,7 @@ const css = StyleSheet.create({
         marginTop: '10%',
       },
       buttonLoginLanding: {
-        backgroundColor: '#ff7f00',
+        backgroundColor: '#583493',
         width: '40%',
         paddingVertical: 10,
         borderRadius: 50,
@@ -60,7 +60,7 @@ const css = StyleSheet.create({
         color: '#FFF',
       },
       buttonSignupLanding: {
-        backgroundColor: '#ff7f00',
+        backgroundColor: '#583493',
         width: '40%',
         paddingVertical: 10,
         borderRadius: 50,
@@ -76,9 +76,10 @@ const css = StyleSheet.create({
       },
 
       // Estilização tela Login
-      backgroundImageLogin: {
+      backgroundLogin: {
         flex: 1,
         resizeMode: 'cover',
+        backgroundColor: '#ff7f00',
       },
       containerLogin: {
         flex: 1,
@@ -104,7 +105,7 @@ const css = StyleSheet.create({
         marginBottom: 30,
       },
       buttonLogin: {
-        backgroundColor: '#ff7f00',
+        backgroundColor: '#583493',
         padding: 10,
         paddingLeft: 90,
         paddingRight: 90,
@@ -167,7 +168,7 @@ const css = StyleSheet.create({
         fontSize: 16
       },
       buttonSignup: {
-        backgroundColor: '#ff7f00',
+        backgroundColor: '#583493',
         width: '100%',
         borderRadius: 20,
         paddingVertical: 8,
