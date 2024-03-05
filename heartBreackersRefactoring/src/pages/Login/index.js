@@ -10,7 +10,7 @@ import {
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import HB from '../../assets/logoHB.png';
+import HB from '../../assets/purpleLogoHB.png';
 import {css} from '../../Style/css';
 import { auth } from '../../Services/firebaseConfig';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
@@ -75,7 +75,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <ImageBackground source={require('../../assets/background3.jpg')} style={css.backgroundImageLogin}>
+    <View style={css.backgroundLogin}>
       <View style={css.containerLogin}>
 
         {/* Teste */}
@@ -123,7 +123,7 @@ const LoginScreen = () => {
           <Text style={css.buttonTextLogin}>prontuarioRemover</Text>
         </TouchableOpacity> */}
       </View>
-    </ImageBackground>
+    </View>
   );
 };
 
