@@ -371,6 +371,22 @@ const css = StyleSheet.create({
         paddingLeft: 5,
         paddingRight: 5,
       },
+
+      containerMedicines1: {
+        flex: 1,
+        backgroundColor: 'red',
+        alignItems: 'center',
+        //justifyContent: 'center',
+        paddingTop: 70,
+      },
+      containerMedicines2: {
+        backgroundColor: 'blue',
+        
+      },
+      TextMedicines: {
+        display: 'flex',
+        flexDirection: 'row',    
+       }
 });
 
 export {css};

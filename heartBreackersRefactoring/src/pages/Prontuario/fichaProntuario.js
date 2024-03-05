@@ -13,7 +13,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const ProntuarioFicha = () => {
 
-  const navigation = useNavigation();//remove
+  const navigation = useNavigation();
   //pega o que foi inserido no input e filtra na máscara e depois seta no input
   const [nome, setNome] = useState('');
   const [foto, setFoto] = useState('');
@@ -283,6 +283,11 @@ const ProntuarioFicha = () => {
               )}
               keyExtractor={(item, index) => item.id}
             />
+            <TouchableOpacity style={css.attachBtt} onPress={ () => navigation.navigate('Medicamentos')}>
+              <Text style={css.attachBttText}>
+                Medicamentos
+              </Text>
+            </TouchableOpacity>
           </View>
         </View> 
         <View style={css.footerContainer}>

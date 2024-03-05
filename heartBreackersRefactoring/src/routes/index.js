@@ -9,6 +9,7 @@ import Main from '../pages/Main';
 import Search from '../pages/Search';
 import SignUp from '../pages/Signup';
 import ProntuarioFicha from '../pages/Prontuario/fichaProntuario';
+import PageMedicines from '../pages/Medicamentos/Medicamentos'
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,11 @@ export default function Routes(){
         <Stack.Screen
             name="Prontuario"
             component={ProntuarioFicha}
+            options={{headerShown: false}}
+        />
+        <Stack.Screen
+            name="Medicamentos"
+            component={PageMedicines}
             options={{headerShown: false}}
         />
     </Stack.Navigator>
