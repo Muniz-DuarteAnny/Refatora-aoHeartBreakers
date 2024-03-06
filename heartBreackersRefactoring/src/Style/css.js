@@ -375,19 +375,71 @@ const css = StyleSheet.create({
 
       containerMedicines1: {
         flex: 1,
-        backgroundColor: 'red',
+        backgroundColor: '#A9A9A9',
         alignItems: 'center',
         //justifyContent: 'center',
         paddingTop: 70,
       },
       containerMedicines2: {
-        backgroundColor: 'blue',
+        backgroundColor: '#DCDCDC',
+        width: '90%',
+        padding: '2%',
+        borderRadius: 5,
+        borderWidth: 3,
+        borderColor: 'orange'
         
       },
       TextMedicines: {
         display: 'flex',
-        flexDirection: 'row',    
-       }
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        backgroundColor: 'orange',
+        width: '100%',
+      },
+      inputMedicine: {
+        backgroundColor: 'white',
+      },
+      medicinesInformacoes: {
+        backgroundColor: 'green',
+        alignItems: 'center',
+        widht: '100%',
+        padding: '1%'
+      },
+      
+      nameMedicines: {
+        backgroundColor: 'purple',
+        width: '100%',
+      },
+      saveInformation: {
+        width: '33%',
+        backgroundColor: '#583493',
+        display: 'flex',
+        alignItems: 'center',
+        borderRadius: 10,
+        color: 'white',
+      },
+      pickercss: {
+        width: '40%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+      },
+      pickerMedicines: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+      },
+      colorFont: {
+        color: 'black',
+        fontWeight: 'bold',
+      },
+      colorFontSave: {
+        color: 'white',
+        fontWeight: 'bold',
+      }
+       
 });
 
 export {css};

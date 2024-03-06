@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, SectionList
 import {css} from '../../Style/css';
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
+import RNPickerSelect from 'react-native-picker-select';
 
 const PageMedicines = () => {
     const navigation = useNavigation();
@@ -107,27 +108,37 @@ const PageMedicines = () => {
                 <TextInput placeholder="O NOME DOS MEDICAMENTOS AQUI!!!" style={css.inputMedicine}/>
                 <View style={css.medicinesInformacoes}>
                     <View style={css.TextMedicines}>
-                        <Text>Medicamentos</Text>
+                        <Text style={css.colorFont}>Medicamentos:</Text>
                         <TextInput style={css.nameMedicines}></TextInput>
                     </View>
                     <View style={css.TextMedicines}>
-                        <Text>Periodo</Text>
-                        <RNPickerSelect style={css} 
-                        placeholder={{ label: 'Selecione...', value: null}}
-                        items={horaOpções}
-                        onValueChange={(selectHora) => setTimer1(selectHora)}
-                        value={timer1}/>
-                        <RNPickerSelect style={css} 
-                        placeholder={{ label: 'Selecione...', value: null}}
-                        items={minutoOpções}
-                        onValueChange={(selectHora) => setTimer2(selectHora)}
-                        value={timer2}/>
+                        <Text style={css.colorFont}>Periodo:</Text>
+                        <View style={css.pickerMedicines}>
+                            <View style={css.pickercss}>
+                                <Text style={css.colorFont}>Hora: </Text>
+                                <RNPickerSelect style={css} 
+                                placeholder={{ label: 'Selecione...', value: null}}
+                                items={horaOpções}
+                                onValueChange={(selectHora) => setTimer1(selectHora)}
+                                value={timer1}/>
+                            </View>
+                            <View style={css.pickercss}>
+                                <Text style={css.colorFont}>Minutos:</Text>
+                                <RNPickerSelect style={css} 
+                                placeholder={{ label: 'Selecione...', value: null}}
+                                items={minutoOpções}
+                                onValueChange={(selectHora) => setTimer2(selectHora)}
+                                value={timer2}/>
+                            </View>
+                        </View>
                     </View>
                     <View style={css.TextMedicines}>
-                        <Text>Evolução</Text>
+                        <Text style={css.colorFont}>Evolução:</Text>
                         <TextInput style={css.nameMedicines}></TextInput>
                     </View>
-                    <TouchableOpacity style={css.saveInformation}>Salvar</TouchableOpacity>
+                    <TouchableOpacity style={css.saveInformation}>
+                        <Text style={ css.colorFontSave}>Salvar</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
