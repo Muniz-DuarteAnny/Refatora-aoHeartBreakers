@@ -116,7 +116,26 @@ const PageMedicines = () => {
                         <View style={css.pickerMedicines}>
                             <View style={css.pickercss}>
                                 <Text style={css.colorFont}>Hora: </Text>
-                                <RNPickerSelect style={css} 
+                                <RNPickerSelect style={{
+                                    inputAndroid: {
+                                        borderColor: 'orange',
+                                        borderWidth: 1,
+                                        borderRadius: 2,
+                                        paddingLeft: 3,
+                                        backgroundColor: '#fff4a7',
+                                        fontSize: 12,
+                                        color: 'black',
+                                      },
+                                      inputIOS: {
+                                        borderColor: 'orange',
+                                        borderWidth: 1,
+                                        borderRadius: 2,
+                                        paddingLeft: 3,
+                                        backgroundColor: '#fff4a7',
+                                        fontSize: 12,
+                                        color: 'black',
+                                      },
+                                }} 
                                 placeholder={{ label: 'Selecione...', value: null}}
                                 items={horaOpções}
                                 onValueChange={(selectHora) => setTimer1(selectHora)}
@@ -124,7 +143,26 @@ const PageMedicines = () => {
                             </View>
                             <View style={css.pickercss}>
                                 <Text style={css.colorFont}>Minutos:</Text>
-                                <RNPickerSelect style={css} 
+                                <RNPickerSelect style={{
+                                    inputAndroid: {
+                                        borderColor: 'orange',
+                                        borderWidth: 1,
+                                        borderRadius: 2,
+                                        paddingLeft: 3,
+                                        backgroundColor: '#fff4a7',
+                                        fontSize: 12,
+                                        color: 'black',
+                                      },
+                                      inputIOS: {
+                                        borderColor: 'orange',
+                                        borderWidth: 1,
+                                        borderRadius: 2,
+                                        paddingLeft: 3,
+                                        backgroundColor: '#fff4a7',
+                                        fontSize: 12,
+                                        color: 'black',
+                                      },
+                                }} 
                                 placeholder={{ label: 'Selecione...', value: null}}
                                 items={minutoOpções}
                                 onValueChange={(selectHora) => setTimer2(selectHora)}

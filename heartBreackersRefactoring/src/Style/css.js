@@ -394,22 +394,29 @@ const css = StyleSheet.create({
         flexDirection: 'column', 
         alignItems: 'center', 
         justifyContent: 'center',
-        backgroundColor: 'orange',
+        //backgroundColor: 'orange',
         width: '100%',
       },
       inputMedicine: {
-        backgroundColor: 'white',
+        //backgroundColor: 'white',
       },
       medicinesInformacoes: {
-        backgroundColor: 'green',
+        //backgroundColor: 'green',
         alignItems: 'center',
         widht: '100%',
         padding: '1%'
       },
       
       nameMedicines: {
-        backgroundColor: 'purple',
+        //backgroundColor: 'purple',
         width: '100%',
+        borderColor: 'orange',
+        borderWidth: 1,
+        borderRadius: 2,
+        paddingLeft: 3,
+        backgroundColor: '#fff4a7',
+        marginBottom: 4,
+        marginTop: 4,
       },
       saveInformation: {
         width: '33%',
