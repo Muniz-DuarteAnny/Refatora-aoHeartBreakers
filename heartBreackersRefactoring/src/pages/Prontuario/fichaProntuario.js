@@ -157,12 +157,12 @@ const ProntuarioFicha = () => {
           <Text style={css.titlePatient}>
             FICHA DO PACIENTE
           </Text>
+          <View style={css.containerPhoto}>
             <Image source={foto} style={css.profileImage}></Image>
             <TouchableOpacity style={css.bttImage} onPress={handleChoosePhoto}>
-            <Text style={css.bttImageTxt}>Adicionar foto</Text>
+              <Text style={css.bttImageTxt}>Adicionar foto</Text>
             </TouchableOpacity>
           </View>
-
           <View style={css.containerData}>
             <View style={css.containerInf}>
               <Text style={css.nameInf}>Nome:</Text>
@@ -342,6 +342,7 @@ const ProntuarioFicha = () => {
             </Text>
           </TouchableOpacity>
         </View>
+      </View>
     </ScrollView >
   )
 }

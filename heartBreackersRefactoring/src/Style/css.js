@@ -208,16 +208,16 @@ const css = StyleSheet.create({
       },
       containerPhoto: {
         alignItems: 'center',
-        width: '80%',
+        width: '100%',
         marginTop: 80,
         marginBottom: 50,
       },
       containerData: {
         flex: 1,
-        
+        //alignItems: 'center',
         flexDirection: 'column',
         width: '80%',
-        paddingLeft: 50,
+        //paddingLeft: 50,
       },
       containerData2: {
         flex: 1,
@@ -226,7 +226,7 @@ const css = StyleSheet.create({
         width: '80%',
         marginBottom: 5,
         marginTop: 5,
-        paddingLeft: 50,
+        //paddingLeft: 50,
       },
       titlePatient: {
         fontSize: 40,
@@ -371,7 +371,7 @@ const css = StyleSheet.create({
         width: '80%',
         marginBottom: 5,
         marginTop: 5,
-        paddingLeft: 50,
+        //paddingLeft: 50,
       },
       insertMedicines: {
         borderRadius: 5,
