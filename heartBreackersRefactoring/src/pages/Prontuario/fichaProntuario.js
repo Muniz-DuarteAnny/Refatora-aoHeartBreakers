@@ -1,4 +1,3 @@
-
 //importando bibliotecas que serão utilizadas no código, talvez seja necessário baixa-las
 //Va até a pasta package.json e verifique se as bibliotecas react-native-masked-text, react-native-picker-select, @react-navigation/native estão instaladas.
 //Caso elas não estiverem instaladas:
@@ -10,6 +9,7 @@ import React, { useState } from "react";
 import { TextInputMask } from 'react-native-masked-text';
 import RNPickerSelect from 'react-native-picker-select';
 import { useNavigation } from '@react-navigation/native';
+import * as ImagePicker from 'expo-image-picker'; // Alteração na importação
 
 const ProntuarioFicha = () => {
 
@@ -114,6 +114,34 @@ const ProntuarioFicha = () => {
     }
   };
 
+  const handleChoosePhoto = async () => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (status !== 'granted') {
+      console.log('Permissão para acessar a biblioteca de mídia foi negada.');
+      return;
+    }
+  
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+  
+      if (!result.cancelled) {
+        const source = { uri: result.uri };
+        setFoto(source);
+      } else {
+        console.log('Usuário cancelou a seleção de imagem.');
+      }
+    } catch (error) {
+      console.log('Erro ao selecionar imagem:', error);
+    }
+  };
+
+
+
   //marcação da página
   return (
     <ScrollView>
@@ -122,12 +150,14 @@ const ProntuarioFicha = () => {
           <Text style={css.titlePatient}>
             FICHA DO PACIENTE
           </Text>
-          <View style={css.containerPhoto}>
+
+          <Image source={foto} style={css.profileImage} />
             <Image source={require("../../assets/perfil.png")} style={css.profileImage}></Image>
-            <TouchableOpacity style={css.bttImage}>
-              <Text style={css.bttImageTxt}>Trocar foto</Text>
+            <TouchableOpacity style={css.bttImage} onPress={handleChoosePhoto}>
+            <Text style={css.bttImageTxt}>Trocar foto</Text>
             </TouchableOpacity>
           </View>
+
           <View style={css.containerData}>
             <View style={css.containerInf}>
               <Text style={css.nameInf}>Nome:</Text>
@@ -307,10 +337,12 @@ const ProntuarioFicha = () => {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>  
     </ScrollView >
   )
 }
 
- 
+
+
+
+
 export default ProntuarioFicha;
