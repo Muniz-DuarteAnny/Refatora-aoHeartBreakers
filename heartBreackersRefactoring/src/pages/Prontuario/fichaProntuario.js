@@ -4,6 +4,7 @@
 //No terminal do vs redirecione para a pasta que o seu projeto esta alocado e instale as bibliotecas 
 //npm install react-native-picker-select react-native-masked-text @react-navigation/native.
 import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, SectionList } from "react-native";
+import foto from '../../assets/perfil.png';
 import {css} from '../../Style/css';
 import React, { useState } from "react";
 import { TextInputMask } from 'react-native-masked-text';
@@ -16,7 +17,6 @@ const ProntuarioFicha = () => {
   const navigation = useNavigation();
   //pega o que foi inserido no input e filtra na máscara e depois seta no input
   const [nome, setNome] = useState('');
-  const [foto, setFoto] = useState('');
   const [endereco, setEndereco] = useState('');
   const [dataNascimento, setdataNascimento] = useState('');
   const [altura, setAltura] = useState('');
@@ -120,6 +120,8 @@ const ProntuarioFicha = () => {
       console.log('Permissão para acessar a biblioteca de mídia foi negada.');
       return;
     }
+
+    <Image source={foto} style={css.profileImage} />
   
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
@@ -131,7 +133,13 @@ const ProntuarioFicha = () => {
   
       if (!result.cancelled) {
         const source = { uri: result.uri };
-        setFoto(source);
+        if (foto) {
+          // Se já existe uma foto, substitui-a pela nova foto selecionada
+          setFoto(source);
+        } else {
+          // Se não existe uma foto, adiciona a nova foto
+          setFoto(source);
+        }
       } else {
         console.log('Usuário cancelou a seleção de imagem.');
       }
@@ -150,12 +158,10 @@ const ProntuarioFicha = () => {
           <Text style={css.titlePatient}>
             FICHA DO PACIENTE
           </Text>
-
-          <Image source={foto} style={css.profileImage} />
-            <Image source={require("../../assets/perfil.png")} style={css.profileImage}></Image>
-            <TouchableOpacity style={css.bttImage} onPress={handleChoosePhoto}>
-            <Text style={css.bttImageTxt}>Trocar foto</Text>
-            </TouchableOpacity>
+          <Image source={foto} style={css.profileImage}></Image>
+          <TouchableOpacity style={css.bttImage} onPress={handleChoosePhoto}>
+          <Text style={css.bttImageTxt}>Trocar foto</Text>
+          </TouchableOpacity>
           </View>
 
           <View style={css.containerData}>

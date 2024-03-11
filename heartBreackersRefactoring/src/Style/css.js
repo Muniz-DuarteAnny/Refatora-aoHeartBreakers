@@ -189,11 +189,12 @@ const css = StyleSheet.create({
       containerMedicalRecord: {
         flex: 1,
         backgroundColor: '#DCDCDC',
+        paddingBottom: 50,
       },
       containerRecordPatient: {
         alignItems: 'center',
         paddingTop: 80,
-        paddingBottom: 20,
+        paddingBottom: 27,
         paddingLeft: 10,
         paddingRight: 10,
       },
@@ -213,8 +214,10 @@ const css = StyleSheet.create({
       },
       containerData: {
         flex: 1,
+        
         flexDirection: 'column',
         width: '80%',
+        paddingLeft: 50,
       },
       containerData2: {
         flex: 1,
@@ -223,20 +226,25 @@ const css = StyleSheet.create({
         width: '80%',
         marginBottom: 5,
         marginTop: 5,
+        paddingLeft: 50,
       },
       titlePatient: {
         fontSize: 40,
         fontWeight: 'bold',
         color: '#808080',
+        marginBottom: 50,
+        
       },
       recordTitle: {
         color: '#DCDCDC',
         fontSize: 40,
         fontWeight: 'bold',
+        paddingTop: 10,
       },
       profileImage: {
         width: '60%',
-        height: 180,
+        height: 230,
+        
       },
       bttImage: {
         justifyContent: 'center',
@@ -363,6 +371,7 @@ const css = StyleSheet.create({
         width: '80%',
         marginBottom: 5,
         marginTop: 5,
+        paddingLeft: 50,
       },
       insertMedicines: {
         borderRadius: 5,
