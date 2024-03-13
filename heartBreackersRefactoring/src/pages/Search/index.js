@@ -40,7 +40,7 @@ const Search = ({ navigation }) => {
 
   // redirecionar a página de criacao de prontuario
   const handleNewPatient = () => {
-    navigation.navigate('Prontuario');
+    navigation.navigate('ficha');
   };
 
   const renderItem = ({ item }) => (

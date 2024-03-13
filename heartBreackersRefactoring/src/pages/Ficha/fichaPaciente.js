@@ -12,7 +12,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker'; // Alteração na importação
 
-const ProntuarioFicha = () => {
+const PacienteFicha = () => {
 
   const navigation = useNavigation();
   //pega o que foi inserido no input e filtra na máscara e depois seta no input
@@ -248,82 +248,37 @@ const ProntuarioFicha = () => {
           </View>
         </View>
         <View style={css.containerRecord}>
-          <Text style={css.recordTitle}>
-            PRONTUARIO
-          </Text>
-          <View style={css.containerNotes}>
-            <Text style={css.titleNotes}>Queixa Principal</Text>
-            <TextInput style={css.insertNotes}
-            multiline={true}
-            value={queixa}
-            onChangeText={(inputQueixa) => setQueixa(inputQueixa)}/>
-            <Text style={css.titleNotes}>Histórico</Text>
-            <TextInput style={css.insertNotes}
-            multiline={true}
-            value={historico}
-            onChangeText={(inputHistorico) => setHistorico(inputHistorico)}/>
-            <Text style={css.titleNotes}>Alergias</Text>
-            <TextInput style={css.insertNotes}
-            multiline={true}
-            value={alergias}
-            onChangeText={(inputAlergias) => setAlergias(inputAlergias)}/>
-            <Text style={css.titleNotes}>CID</Text>
-            <TextInput style={css.insertNotes}
-            multiline={true}
-            value={cid}
-            onChangeText={(inputCid) => setCid(inputCid)}/>
-            <Text style={css.titleNotes}>Exame Físico</Text>
-            <TextInput style={css.insertNotes}
-            multiline={true}
-            value={exameF}
-            onChangeText={(inputExamef) => setExamef(inputExamef)}/>
-            <Text style={css.titleNotes}>Conduta</Text>
-            <TextInput style={css.insertNotes}
-            multiline={true}
-            value={conduta}
-            onChangeText={(inputConduta) => setConduta(inputConduta)}/>
-            <Text style={css.titleNotes}>Hipótese de Diagnóstico</Text>
-            <TextInput style={css.insertNotes}
-            multiline={true}
-            value={hipoteseD}
-            onChangeText={(inputHipotesed) => setHipotesed(inputHipotesed)}/>
-            <Text style={css.titleNotes}>Diagnóstico</Text>
-            <TextInput style={css.insertNotes}
-            multiline={true}
-            value={diagnostico}
-            onChangeText={(inputDiagnostico) => setDiagnostico(inputDiagnostico)}/>
-            <Text style={css.titleNotes}>Resultado dos Exames</Text>
-            <TextInput style={css.insertNotes}
-            multiline={true}/>
-            <TouchableOpacity style={[css.attachBtt, {marginBottom: 30,}]} >
-              <Text style={css.attachBttText}>
-                Anexar arquivo
-              </Text>
-            </TouchableOpacity>
-            <Text style={css.titleNotes}>Medicamentos</Text>
-            <TextInput style={css.insertMedicines}
-            value={inputMedicines}
-            onChangeText={text => setInputMedicines(text)}/>
-            <TouchableOpacity style={css.attachBtt} onPress= {addItem}>
-              <Text style={css.attachBttText}>
-                Adicionar Medicamentos
-              </Text>
-            </TouchableOpacity>
-            <SectionList
-              sections={[{data: items }]}
-              style={[css.medicinesList, {width: widthSection}]}
-              renderItem={renderItem}
-              renderSectionHeader={({ section: { title } }) => (
-                <Text >{title}</Text>
-              )}
-              keyExtractor={(item, index) => item.id}
-            />
+          <Text style={css.titleNotes}>Medicamentos</Text>
+          <TextInput style={css.insertMedicines}
+          value={inputMedicines}
+          onChangeText={text => setInputMedicines(text)}/>
+          <TouchableOpacity style={css.attachBtt1} onPress= {addItem}>
+            <Text style={css.attachBttText}>
+              Adicionar Medicamentos
+            </Text>
+          </TouchableOpacity>
+          <SectionList
+            sections={[{data: items }]}
+            style={[css.medicinesList, {width: widthSection}]}
+            renderItem={renderItem}
+            renderSectionHeader={({ section: { title } }) => (
+              <Text >{title}</Text>
+            )}
+            keyExtractor={(item, index) => item.id}
+          />
+          <View style={css.buttonsAtalho}>
             <TouchableOpacity style={css.attachBtt} onPress={ () => navigation.navigate('Medicamentos')}>
               <Text style={css.attachBttText}>
                 Medicamentos
               </Text>
             </TouchableOpacity>
+            <TouchableOpacity style={css.attachBtt} onPress={ () => navigation.navigate('Prontuário')}>
+              <Text style={css.attachBttText}>
+                Prontuário
+              </Text>
+            </TouchableOpacity>
           </View>
+          
         </View> 
         <View style={css.footerContainer}>
           <TouchableOpacity style={css.footerBtt} onPress={handleProntuario}>
@@ -351,4 +306,4 @@ const ProntuarioFicha = () => {
 
 
 
-export default ProntuarioFicha;
+export default PacienteFicha;

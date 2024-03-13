@@ -189,7 +189,7 @@ const css = StyleSheet.create({
       containerMedicalRecord: {
         flex: 1,
         backgroundColor: '#DCDCDC',
-        paddingBottom: 50,
+        //paddingBottom: 50,
       },
       containerRecordPatient: {
         alignItems: 'center',
@@ -199,9 +199,9 @@ const css = StyleSheet.create({
         paddingRight: 10,
       },
       containerRecord: {
-        backgroundColor: '#A9A9A9',
+        backgroundColor: '#DCDCDC',
         alignItems: 'center',
-        paddingTop: 80,
+        //paddingTop: 80,
         paddingBottom: 20,
         paddingLeft: 10,
         paddingRight: 10,
@@ -232,7 +232,7 @@ const css = StyleSheet.create({
         fontSize: 40,
         fontWeight: 'bold',
         color: '#808080',
-        marginBottom: 50,
+        //marginBottom: 50,
         
       },
       recordTitle: {
@@ -261,7 +261,7 @@ const css = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
       },
-      attachBtt: {
+      attachBtt1: {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#583493',
@@ -270,6 +270,18 @@ const css = StyleSheet.create({
         borderRadius: 5,
         borderColor: "grey",
         borderWidth: 0.5,
+        marginTop: 10,
+      },
+      attachBtt: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#583493',
+        width: '40%',
+        height: 30,
+        borderRadius: 5,
+        borderColor: "grey",
+        borderWidth: 0.5,
+        marginTop: 10,
       },
       attachBttText: {
         color: 'white',
@@ -322,7 +334,7 @@ const css = StyleSheet.create({
       },
       titleNotes: {
         fontSize: 20,
-        color: '#DCDCDC',
+        color: '#808080',
       },
       insertNotes: {
         borderRadius: 5,
@@ -338,6 +350,8 @@ const css = StyleSheet.create({
         justifyContent: 'space-around',
         flexDirection: 'row',
         backgroundColor: '#A9A9A9',
+        alignItems: 'center',
+        paddingTop: 18,
       },
       footerBtt: {
         justifyContent: 'center',
@@ -454,7 +468,20 @@ const css = StyleSheet.create({
       colorFontSave: {
         color: 'white',
         fontWeight: 'bold',
-      }
+      },
+      buttonsAtalho: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+      },
+      prontuarioDisplay: {
+        alignItems: 'center',
+        paddingTop: 80,
+        paddingBottom: 27,
+        paddingLeft: 10,
+        paddingRight: 10,
+      },
        
 });
 

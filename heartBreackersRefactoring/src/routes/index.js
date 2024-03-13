@@ -8,8 +8,9 @@ import LoginScreen from '../pages/Login'
 import Main from '../pages/Main';
 import Search from '../pages/Search';
 import SignUp from '../pages/Signup';
-import ProntuarioFicha from '../pages/Prontuario/fichaProntuario';
-import PageMedicines from '../pages/Medicamentos/Medicamentos'
+import PacienteFicha from '../pages/Ficha/fichaPaciente';
+import PacienteProntuario from '../pages/Prontuario/prontuarioPaciente';
+import PageMedicines from '../pages/Medicamentos/Medicamentos';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,9 +43,14 @@ export default function Routes(){
             component={SignUp}
             options={{headerShown: false}}
         />
+         <Stack.Screen
+            name="ficha"
+            component={PacienteFicha}
+            options={{headerShown: false}}
+        />
         <Stack.Screen
-            name="Prontuario"
-            component={ProntuarioFicha}
+            name="Prontuário"
+            component={PacienteProntuario}
             options={{headerShown: false}}
         />
         <Stack.Screen
