@@ -179,6 +179,30 @@ const PageMedicines = () => {
                     </TouchableOpacity>
                 </View>
             </View>
+            <View style={{
+                display: 'flex',
+                justifyContent: 'space-around',
+                flexDirection: 'row',
+                backgroundColor: 'red',
+                alignItems: 'center',
+                paddingTop: 18,
+                width: '100%',
+                height: '10%',
+                position: 'absolute',
+                bottom: 0,
+                backgroundColor: '#DCDCDC',
+                }}>
+                <TouchableOpacity style={css.footerBtt} onPress={() => navigation.navigate('ficha')}>
+                    <Text style={css.footerBttText}>
+                        Voltar
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={css.footerBtt}>
+                    <Text style={css.footerBttText}>
+                        Excluir
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }

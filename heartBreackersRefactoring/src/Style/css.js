@@ -402,6 +402,7 @@ const css = StyleSheet.create({
         alignItems: 'center',
         //justifyContent: 'center',
         paddingTop: 70,
+        position: 'relative',
       },
       containerMedicines2: {
         backgroundColor: '#DCDCDC',

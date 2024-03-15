@@ -270,7 +270,6 @@ const PacienteFicha = () => {
               </Text>
             </TouchableOpacity>
           </View>
-          
         </View> 
         <View style={css.footerContainer}>
           <TouchableOpacity style={css.footerBtt} onPress={handleFicha}>

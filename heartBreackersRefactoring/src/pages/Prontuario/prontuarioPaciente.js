@@ -28,7 +28,7 @@ const PacienteProntuario = () => {
         console.log(cid)
         console.log(conduta)
         console.log(hipoteseD)
-         console.log(diagnostico)
+        console.log(diagnostico)
     };
     const excluirProntuario = () => {
         setQueixa('');
@@ -43,59 +43,61 @@ const PacienteProntuario = () => {
 
     return (
         <ScrollView>
-            <View style={css.prontuarioDisplay}>
-                <Text style={css.recordTitle}>
-                    PRONTUARIO
-                </Text>
-                <View style={css.containerNotes}>
-                    <Text style={css.titleNotes}>Queixa Principal</Text>
-                    <TextInput style={css.insertNotes}
-                        multiline={true}
-                        value={queixa}
-                        onChangeText={(inputQueixa) => setQueixa(inputQueixa)} />
-                    <Text style={css.titleNotes}>Histórico</Text>
-                    <TextInput style={css.insertNotes}
-                        multiline={true}
-                        value={historico}
-                        onChangeText={(inputHistorico) => setHistorico(inputHistorico)} />
-                    <Text style={css.titleNotes}>Alergias</Text>
-                    <TextInput style={css.insertNotes}
-                        multiline={true}
-                        value={alergias}
-                        onChangeText={(inputAlergias) => setAlergias(inputAlergias)} />
-                    <Text style={css.titleNotes}>CID</Text>
-                    <TextInput style={css.insertNotes}
-                        multiline={true}
-                        value={cid}
-                        onChangeText={(inputCid) => setCid(inputCid)} />
-                    <Text style={css.titleNotes}>Exame Físico</Text>
-                    <TextInput style={css.insertNotes}
-                        multiline={true}
-                        value={exameF}
-                        onChangeText={(inputExamef) => setExamef(inputExamef)} />
-                    <Text style={css.titleNotes}>Conduta</Text>
-                    <TextInput style={css.insertNotes}
-                        multiline={true}
-                        value={conduta}
-                        onChangeText={(inputConduta) => setConduta(inputConduta)} />
-                    <Text style={css.titleNotes}>Hipótese de Diagnóstico</Text>
-                    <TextInput style={css.insertNotes}
-                        multiline={true}
-                        value={hipoteseD}
-                        onChangeText={(inputHipotesed) => setHipotesed(inputHipotesed)} />
-                    <Text style={css.titleNotes}>Diagnóstico</Text>
-                    <TextInput style={css.insertNotes}
-                        multiline={true}
-                        value={diagnostico}
-                        onChangeText={(inputDiagnostico) => setDiagnostico(inputDiagnostico)} />
-                    <Text style={css.titleNotes}>Resultado dos Exames</Text>
-                    <TextInput style={css.insertNotes}
-                        multiline={true} />
-                    <TouchableOpacity style={[css.attachBtt, { marginBottom: 30, }]} >
-                        <Text style={css.attachBttText}>
-                            Anexar arquivo
-                        </Text>
-                    </TouchableOpacity>
+            <View style={css.containerMedicalRecord}>
+                <View style={css.prontuarioDisplay}>
+                    <Text style={css.recordTitle}>
+                        PRONTUARIO
+                    </Text>
+                    <View style={css.containerNotes}>
+                        <Text style={css.titleNotes}>Queixa Principal</Text>
+                        <TextInput style={css.insertNotes}
+                            multiline={true}
+                            value={queixa}
+                            onChangeText={(inputQueixa) => setQueixa(inputQueixa)} />
+                        <Text style={css.titleNotes}>Histórico</Text>
+                        <TextInput style={css.insertNotes}
+                            multiline={true}
+                            value={historico}
+                            onChangeText={(inputHistorico) => setHistorico(inputHistorico)} />
+                        <Text style={css.titleNotes}>Alergias</Text>
+                        <TextInput style={css.insertNotes}
+                            multiline={true}
+                            value={alergias}
+                            onChangeText={(inputAlergias) => setAlergias(inputAlergias)} />
+                        <Text style={css.titleNotes}>CID</Text>
+                        <TextInput style={css.insertNotes}
+                            multiline={true}
+                            value={cid}
+                            onChangeText={(inputCid) => setCid(inputCid)} />
+                        <Text style={css.titleNotes}>Exame Físico</Text>
+                        <TextInput style={css.insertNotes}
+                            multiline={true}
+                            value={exameF}
+                            onChangeText={(inputExamef) => setExamef(inputExamef)} />
+                        <Text style={css.titleNotes}>Conduta</Text>
+                        <TextInput style={css.insertNotes}
+                            multiline={true}
+                            value={conduta}
+                            onChangeText={(inputConduta) => setConduta(inputConduta)} />
+                        <Text style={css.titleNotes}>Hipótese de Diagnóstico</Text>
+                        <TextInput style={css.insertNotes}
+                            multiline={true}
+                            value={hipoteseD}
+                            onChangeText={(inputHipotesed) => setHipotesed(inputHipotesed)} />
+                        <Text style={css.titleNotes}>Diagnóstico</Text>
+                        <TextInput style={css.insertNotes}
+                            multiline={true}
+                            value={diagnostico}
+                            onChangeText={(inputDiagnostico) => setDiagnostico(inputDiagnostico)} />
+                        <Text style={css.titleNotes}>Resultado dos Exames</Text>
+                        <TextInput style={css.insertNotes}
+                            multiline={true} />
+                        <TouchableOpacity style={[css.attachBtt, { marginBottom: 30, }]} >
+                            <Text style={css.attachBttText}>
+                                Anexar arquivo
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={css.footerContainer}>
                     <TouchableOpacity style={css.footerBtt} onPress={handleProntuario}>
@@ -103,7 +105,7 @@ const PacienteProntuario = () => {
                             Salvar
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={css.footerBtt} onPress={() => navigation.navigate('ficha ')}>
+                    <TouchableOpacity style={css.footerBtt} onPress={() => navigation.navigate('ficha')}>
                         <Text style={css.footerBttText}>
                             Voltar
                         </Text>
