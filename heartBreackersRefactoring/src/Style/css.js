@@ -236,7 +236,7 @@ const css = StyleSheet.create({
         
       },
       recordTitle: {
-        color: '#DCDCDC',
+        color: '#808080',
         fontSize: 40,
         fontWeight: 'bold',
         paddingTop: 10,
@@ -481,6 +481,7 @@ const css = StyleSheet.create({
         paddingBottom: 27,
         paddingLeft: 10,
         paddingRight: 10,
+        backgroundColor: '#DCDCDC',
       },
        
 });

@@ -40,7 +40,7 @@ const PacienteFicha = () => {
   const [widthSection, setWidth] = useState('0%');
   const renderItem = ({ item }) => <Text style={css.item}>{item.texto}</Text>;
 
-  const handleProntuario = () => {
+  const handleFicha = () => {
     // verificar as credenciais no servidor.
   
     console.log(nome)
@@ -52,14 +52,6 @@ const PacienteFicha = () => {
     console.log(altura)
     console.log(sexo)
     console.log(sangue)
-    console.log(queixa)
-    console.log(historico)
-    console.log(alergias)
-    console.log(exameF)
-    console.log(cid)
-    console.log(conduta)
-    console.log(hipoteseD)
-     console.log(diagnostico)
   };
 
   //adiciona opções nos inputs
@@ -80,7 +72,7 @@ const PacienteFicha = () => {
     {label: 'O-', value: 'O-'},
   ]
 
-  const excluirFormulario = () => {
+  const excluirFicha = () => {
     setNome('');
     setFoto('');
     setEndereco('');
@@ -281,7 +273,7 @@ const PacienteFicha = () => {
           
         </View> 
         <View style={css.footerContainer}>
-          <TouchableOpacity style={css.footerBtt} onPress={handleProntuario}>
+          <TouchableOpacity style={css.footerBtt} onPress={handleFicha}>
             <Text style={css.footerBttText}> 
                 Salvar
             </Text>
@@ -291,7 +283,7 @@ const PacienteFicha = () => {
                 Voltar
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={css.footerBtt} onPress={excluirFormulario}>
+          <TouchableOpacity style={css.footerBtt} onPress={excluirFicha}>
             <Text style={css.footerBttText}>
                 Excluir
             </Text>
