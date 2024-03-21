@@ -11,54 +11,52 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import HB from '../../assets/purpleLogoHB.png';
+import { TextInputMask } from 'react-native-masked-text';
 import {css} from '../../Style/css';
 import { auth } from '../../Services/firebaseConfig';
-import { createUserWithEmailAndPassword } from '@firebase/auth';
-import { TextInputMask } from 'react-native-masked-text';
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 const LoginScreen = () => {
 
   const navigation = useNavigation();
   const route = useRoute();
-  const [cpf, setCpf] = useState(null)
+  const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null);
 
   const handleLogin = () => {
-    if (cpf == null || password == null) {
+    if (email == null || password == null) {
       Alert.alert(
         'Campos vazios',
         'Os campos devem ser preenchidos.'
       );
     } else {
-      createUserWithEmailAndPassword(auth, cpf, password)
-      .then((userCredential) => {
-        // Signed up 
-        const user = userCredential.user;
-        // console.log(user)
-        // setUser(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          navigation.navigate('Search');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+      
 
       // Verificar as credenciais no servidor.
-      console.log('CPF inserido:', cpf);
+      console.log('Email inserido:', email);
       console.log('Senha inserida:', password);
 
-      navigation.navigate('Search');
     };
   }
 
   useEffect(() => {
-    const receivedCpf = route.params?.receivedCpf;
+    const receivedEmail = route.params?.receivedEmail;
     const receivedPass = route.params?.receivedPass;
   
-    if (receivedCpf && receivedPass) {
-      console.log('CPF recebido:', receivedCpf);
+    if (receivedEmail && receivedPass) {
+      console.log('Email recebido:', receivedEmail);
       console.log('Senha recebida:', receivedPass);
-      setCpf(receivedCpf);
+      setEmail(receivedEmail);
       setPassword(receivedPass);
     } else {
       console.log('Parâmetros ausentes na rota.');
@@ -79,30 +77,24 @@ const LoginScreen = () => {
       <View style={css.containerLogin}>
 
         {/* Teste */}
-        {/* <Text>CPF: {cpf} - Senha: {password}</Text> */}
+        {/* <Text>Email: {email} - Senha: {password}</Text> */}
 
 
         <Image source={HB} style={css.logoLogin} />
         <Text style={css.titleLogin}>BEM-VINDO(A)!</Text>
 
-        <TextInputMask
+        <TextInput
           style={css.inputLogin}
-          type={'cpf'}
-          options={{
-            format: "###.###.###-##",
-          }}
-          placeholder="CPF"
-          keyboardType="numeric"
+          placeholder="Email"
           placeholderTextColor={"white"}
-          onChangeText={text => setCpf(text)}
-          value={cpf}
+          onChangeText={text => setEmail(text)}
+          value={email}
         />
 
         <TextInput
           style={css.inputLogin}
           secureTextEntry
           placeholder="SENHA"
-          keyboardType="password"
           placeholderTextColor={"white"}
           onChangeText={text => setPassword(text)}
           value={password}

@@ -2,7 +2,6 @@ import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, SectionList
 // import foto from '../../assets/perfil.png';
 import { css } from '../../Style/css';
 import React, { useState } from "react";
-import { TextInputMask } from 'react-native-masked-text';
 import RNPickerSelect from 'react-native-picker-select';
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker'; // Alteração na importação

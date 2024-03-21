@@ -14,12 +14,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.post('/create', async (req,res)=>{
     req.body.passwordUser;
     let reqs = await model.User.create({
-        'cpf':req.body.cpfUser,
+        'email':req.body.emailUser,
         'password':req.body.passwordUser,
         'createAt':new Date(),
         'updateAt':new Date()
     });
-    console.log(req.body.cpfUser);
+    console.log(req.body.emailUser);
 })
 
 let port = process.env.PORT || 3000;

@@ -31,7 +31,7 @@ USE `heart_breakers_refactoring`;
 
 CREATE TABLE `doctor` (
   `doctorId` int(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `cpf` varchar(11) NOT NULL UNIQUE,
+  `email` varchar(11) NOT NULL UNIQUE,
   `password` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,7 +39,7 @@ CREATE TABLE `doctor` (
 -- Despejando dados para a tabela `doctor`
 --
 
-INSERT INTO `doctor` (`cpf`, `password`) VALUES
+INSERT INTO `doctor` (`email`, `password`) VALUES
 ('11111111111', '123'),
 ('22222222222', '123');
 
@@ -53,7 +53,7 @@ CREATE TABLE `patient` (
   `medical_record` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `photo` longblob DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `cpf` int(11) DEFAULT NULL UNIQUE,
+  `email` int(11) DEFAULT NULL UNIQUE,
   `rg` int(11) DEFAULT NULL,
   `birth_date` date DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,

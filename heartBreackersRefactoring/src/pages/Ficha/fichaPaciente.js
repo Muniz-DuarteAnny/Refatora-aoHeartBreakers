@@ -3,11 +3,10 @@
 //Caso elas não estiverem instaladas:
 //No terminal do vs redirecione para a pasta que o seu projeto esta alocado e instale as bibliotecas 
 //npm install react-native-picker-select react-native-masked-text @react-navigation/native.
-import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, SectionList } from "react-native";
+import { View, Text, TouchableOpacity, Image, TextInputMask, ScrollView, SectionList } from "react-native";
 // import foto from '../../assets/perfil.png';
 import {css} from '../../Style/css';
 import React, { useState } from "react";
-import { TextInputMask } from 'react-native-masked-text';
 import RNPickerSelect from 'react-native-picker-select';
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker'; // Alteração na importação
@@ -22,7 +21,7 @@ const PacienteFicha = () => {
   const [dataNascimento, setdataNascimento] = useState('');
   const [altura, setAltura] = useState('');
   const [peso, setPeso] = useState('');
-  const [cpf, setCpf] = useState('');
+  const [email, setEmail] = useState('');
   const [rg, setRg] = useState('');
   const [sexo, setSexo] = useState(null);
   const [sangue, setSangue] = useState(null);
@@ -44,7 +43,7 @@ const PacienteFicha = () => {
     // verificar as credenciais no servidor.
   
     console.log(nome)
-    console.log(cpf) 
+    console.log(email) 
     console.log(rg)
     console.log(endereco)
     console.log(dataNascimento)
@@ -79,7 +78,7 @@ const PacienteFicha = () => {
     setdataNascimento('');
     setAltura('');
     setPeso('');
-    setCpf('');
+    setEmail('');
     setRg('');
     setSexo('');
     setSangue('');
@@ -164,16 +163,16 @@ const PacienteFicha = () => {
               onChangeText={(inputNome) => setNome(inputNome.replace(/[^a-zA-Z\s]/g, ''))}/>
             </View>
             <View style={css.containerInf}>
-              <Text style={css.nameInf}>CPF:</Text>
-              <TextInputMask style={css.insertInf} 
-              type={'cpf'}
-              value={cpf}
-              onChangeText={(inputCpf) => setCpf(inputCpf)}
-              placeholder="Digite o CPF do paciente"/>
+              <Text style={css.nameInf}>Email:</Text>
+              <TextInput style={css.insertInf} 
+              type={'email'}
+              value={email}
+              onChangeText={(inputEmail) => setEmail(inputEmail)}
+              placeholder="Digite o Email do paciente"/>
             </View>
             <View style={css.containerInf}>
               <Text style={css.nameInf}>RG:</Text>
-              <TextInputMask style={css.insertInf} 
+              <TextInput style={css.insertInf} 
                 placeholder="Digite o RG do paciente"
                 type={'custom'}
                 options={{
@@ -192,7 +191,7 @@ const PacienteFicha = () => {
             </View>
             <View style={css.containerInf}>
               <Text style={css.nameInf}>Data de nascimento:</Text>
-              <TextInputMask style={css.insertInf} 
+              <TextInput style={css.insertInf} 
               placeholder="Selecione a data de nascimento do paciente"
               type={'datetime'}
               options={{

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
-import { TextInputMask } from 'react-native-masked-text';
 import { css } from '../../Style/css';
 import config from '../../../config/config.json';
 
@@ -10,16 +9,16 @@ export default function SignUp() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    setCpf('');
+    setEmail('');
     setPassword('');
   }, []);
 
-  // Variáveis que armazenam o cpf e senha
-  const [cpf, setCpf] = useState('');
+  // Variáveis que armazenam o email e senha
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleCpfChange = (extracted) => {
-    setCpf(extracted);
+  const handleEmailChange = (extracted) => {
+    setEmail(extracted);
   };
 
   // Função que pega o texto digitado na senha
@@ -42,8 +41,8 @@ export default function SignUp() {
       return;
     }
 
-    // Armazenar cpf e senha se a senha for válida
-    const validCpf = cpf;
+    // Armazenar email e senha se a senha for válida
+    const validEmail = email;
     const validPass = password;
 
     //Enviando dados do form ao Backend
@@ -55,7 +54,7 @@ export default function SignUp() {
           'Content-Type':'application/json'
         },
         body: JSON.stringify({
-          cpfUser: validCpf,
+          emailUser: validEmail,
           passwordUser: validPass
         })
       });
@@ -63,12 +62,12 @@ export default function SignUp() {
 
     //Mudando de página
     console.log('Navegando para  o componente: Login');
-    //CPF e senha válidos
-    console.log('CPF Válido:', validCpf);
+    //Email e senha válidos
+    console.log('Email Válido:', validEmail);
     console.log('Senha Válida:', validPass);
 
     navigation.navigate('Login', {
-      receivedCpf: validCpf,
+      receivedEmail: validEmail,
       receivedPass: validPass,
     });
   };
@@ -80,17 +79,17 @@ export default function SignUp() {
       </Animatable.View>
 
       <Animatable.View animation="fadeInUp" delay={500} style={css.containerFormSignup}>
-      <Text style={css.titleFormSignup}>CPF</Text>
-        <TextInputMask
+      <Text style={css.titleFormSignup}>Email</Text>
+        <TextInput
           style={css.inputSignup}
-          type={'cpf'}
+          type={'email'}
           options={{
             format: '###.###.###-##',
           }}
-          onChangeText={handleCpfChange}
+          onChangeText={handleEmailChange}
           placeholder="Ex: 000.000.000-00"
           keyboardType="numeric"
-          value={cpf}
+          value={email}
         />
 
         <Text style={css.titleFormSignup}>Senha</Text>
