@@ -3,14 +3,13 @@
 //Caso elas não estiverem instaladas:
 //No terminal do vs redirecione para a pasta que o seu projeto esta alocado e instale as bibliotecas 
 //npm install react-native-picker-select react-native-masked-text @react-navigation/native.
-import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, SectionList,} from "react-native";
+import { View, Text, TouchableOpacity, Image, TextInputMask, ScrollView, SectionList } from "react-native";
 // import foto from '../../assets/perfil.png';
 import {css} from '../../Style/css';
 import React, { useState } from "react";
 import RNPickerSelect from 'react-native-picker-select';
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker'; // Alteração na importação
-
 
 const PacienteFicha = () => {
 
@@ -138,9 +137,7 @@ const PacienteFicha = () => {
       console.log('Erro ao selecionar imagem:', error);
     }
   };
-  
 
-    
 
 
   //marcação da página
@@ -261,7 +258,7 @@ const PacienteFicha = () => {
             keyExtractor={(item, index) => item.id}
           />
           <View style={css.buttonsAtalho}>
-            <TouchableOpacity style={css.attachBtt} onPress={ () => navigation.navigate('Medicamentos', { data: items })}>
+            <TouchableOpacity style={css.attachBtt} onPress={ () => navigation.navigate('Medicamentos')}>
               <Text style={css.attachBttText}>
                 Medicamentos
               </Text>

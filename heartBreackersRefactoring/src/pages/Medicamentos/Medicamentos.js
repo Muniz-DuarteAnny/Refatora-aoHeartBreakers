@@ -3,13 +3,13 @@ import {css} from '../../Style/css';
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import RNPickerSelect from 'react-native-picker-select';
-import { useRoute } from '@react-navigation/native';
+
 const PageMedicines = () => {
     const navigation = useNavigation();
     const [timer1, setTimer1] = useState('');
     const [timer2, setTimer2] = useState('');
-    const route = useRoute();
-    const { items } = route.params;
+
+
 
 
     const horaOpções = [
@@ -105,9 +105,7 @@ const PageMedicines = () => {
     return (
         <View style={css.containerMedicines1}>
             <View style={css.containerMedicines2}>
-                {items.map(item => (
-                    <Text key={item.id} style={css.inputMedicine}>{item.texto}</Text>
-                ))}
+                <TextInput placeholder="O NOME DOS MEDICAMENTOS AQUI!!!" style={css.inputMedicine}/>
                 <View style={css.medicinesInformacoes}>
                     <View style={css.TextMedicines}>
                         <Text style={css.colorFont}>Medicamentos:</Text>
