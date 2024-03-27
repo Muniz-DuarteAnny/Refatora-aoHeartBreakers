@@ -104,11 +104,11 @@ const LoginScreen = () => {
           <Text style={css.buttonTextLogin}>Entrar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={css.buttonAccountLogin} onPress={handlePressAccount}>
+        {/* <TouchableOpacity style={css.buttonAccountLogin} onPress={handlePressAccount}>
           <Text style={css.textAccountLogin}>
             Não possuo uma conta.
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* Teste */}
         {/* <TouchableOpacity style={css.buttonLogin} onPress={ () => navigation.navigate('Prontuario')}>

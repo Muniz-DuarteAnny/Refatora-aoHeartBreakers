@@ -32,7 +32,7 @@ export default function Landing() {
         
       <Animatable.View delay={800} animation="fadeInUp" style={css.containerFormLanding}>
         <Text style={css.titleLanding}>Monitoramento de prontuário Heart Breakers!</Text>
-        <Text style={css.textLanding}>Faça login ou cadastre-se para acessar o sistema.</Text>
+        <Text style={css.textLanding}>Faça login para acessar o sistema.</Text>
 
         <View style={css.containerButtonsLanding}>
           {/* Botão de login */}
@@ -47,7 +47,7 @@ export default function Landing() {
           </TouchableOpacity>
 
           {/* Botão de signup */}
-          <TouchableOpacity
+          {/* <TouchableOpacity
           style={css.buttonSignupLanding}
           activeOpacity={0.7}
           onPress={handlePressSignup}
@@ -55,7 +55,7 @@ export default function Landing() {
             <Text style={css.buttonSignupTextLanding}>
               Cadastrar
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </Animatable.View>
     </View>
